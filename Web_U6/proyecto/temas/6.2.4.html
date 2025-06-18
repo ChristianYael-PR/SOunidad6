@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.2.4 E/S usando DMA</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <!-- --------------------------------------------
+         LOGO IZQUIERDO (clase .logo-left)
+         -------------------------------------------- -->
+    <div class="logo-left">
+      <!-- Cambia src="assets/logo-escom.png" por tu ruta real -->
+      <img src="../../assets/logo1.png" alt="Logo ESCOM" />
+    </div>
+ 
+    <!-- --------------------------------------------
+         TEXTO CENTRADO (clase .header-text)
+         -------------------------------------------- -->
+    <div class="header-text">
+      <p>Instituto Politécnico Nacional</p>
+      <p>Escuela Superior de Cómputo</p>
+      <p>Ingeniería en Sistemas Computacionales</p>
+      <p>Sistemas Operativos</p>
+      <p>Unidad V: Dispositivos de Entrada y Salida</p>
+    </div>
+
+    <!-- --------------------------------------------
+         LOGO DERECHO (clase .logo-right)
+         -------------------------------------------- -->
+    <div class="logo-right">
+      <!-- Cambia src="assets/logo-ipn.png" por tu ruta real -->
+      <img src="../../assets/logo2.png" alt="Logo IPN" />
+    </div>
+  </div>
+</header>
+
+    <!-- ===================== NAV PRINCIPAL ===================== -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="#" id="btnMostrarIndice">Índice</a></li>
+        <li><a href="../referencias.html">Referencias</a></li>
+      </ul>
+    </nav>
+
+    <!-- ===================== BARRA LATERAL (ÍNDICE) ===================== -->
+    <div class="main-container">
+      <aside class="sidebar collapsed">
+        <!-- Botón para mostrar/ocultar la barra lateral -->
+        <button class="toggle-btn">☰ Índice</button>
+        <ul class="indice-list">
+
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="5.1.html">5.1 Principios del Hardware de E/S</a></li>
+          <li><a href="5.1.1.html">5.1.1 Dispositivos de E/S</a></li>
+          <li><a href="5.1.2.html">5.1.2 Controladores de Dispositivos</a></li>
+          <li><a href="5.1.3.html">5.1.3 Interrupciones</a></li>
+          <li><a href="5.1.4.html">5.1.4 Acceso de Memoria Directo (DMA)</a></li>
+          <li><a href="5.2.html">5.2 Principios del Software de E/S</a></li>
+          <li><a href="5.2.1.html">5.2.1 Objetivos del Software de E/S</a></li>
+          <li><a href="5.2.2.html">5.2.2 E/S programadas</a></li>
+          <li><a href="5.2.3.html">5.2.3 E/S Manejadas por Interrupciones</a></li>
+          <li><a href="5.2.4.html">5.2.4 E/S Usando DMA</a></li>
+          <li><a href="5.3.html">5.3 Capas de Software</a></li>
+          <li><a href="5.3.1.html">5.3.1 Manejador de Interrupciones</a></li>
+          <li><a href="5.3.2.html">5.3.2 Controladores de los Dispositivos</a></li>
+          <li><a href="5.3.3.html">5.3.3 Software modo usuario para E/S</a></li>
+
+          <li><a href="../referencias.html">Referencias</a></li>
+        </ul>
+      </aside>
+
+
+      <!-- ===================== ÁREA DE CONTENIDO ===================== -->
+      <main class="content-area">
+        <h1 class="page-title">5.2.4 E/S usando DMA</h1>
+
+        <!-- ================ CONTENIDO DEL TEMA ================ -->
+        <p>
+ Una limitación de la E/S controlada por interrupciones es que genera una interrupción por cada carácter, lo cual consume tiempo de CPU. Para ello, se puede optimizar este proceso se utiliza DMA (Acceso Directo a Memoria), donde un controlador de DMA se encarga de transferir los datos directamente entre la memoria y el dispositivo de E/S, sin involucrar a la CPU en cada paso. La CPU solo interviene al inicio para configurar la transferencia y al final para recibir una interrupción que indica que todo el búfer se ha procesado. Esto reduce drásticamente el número de interrupciones, pasando de una por carácter a una por cada bloque o búfer completo. Esto representa una mejora considerable, especialmente cuando se manejan grandes cantidades de datos o cuando las interrupciones son costosas.
+        </p>
+<br>
+        <p>
+ Sin embargo, el DMA no es perfecto: el controlador de DMA suele ser más lento que la CPU. Si no puede manejar el dispositivo a su máxima velocidad, o si la CPU no tiene otra tarea útil durante la espera, puede ser más eficiente usar E/S por interrupciones o incluso E/S programada.
+        </p>
+<br>
+        <p>
+ A pesar de esto, en la mayoría de los casos, DMA es preferible, ya que libera a la CPU para realizar otras tareas mientras se realiza la E/S. El concepto básico es similar a la E/S programada, pero el trabajo lo hace el controlador de DMA en lugar de la CPU, lo cual requiere hardware adicional.
+        </p>
+
+        <div style="margin: 20px 0; text-align: left;">
+        <p style="font-size: 12px; color: #666; margin-top: 5px;">
+Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos: 5.2.4  E/S mediante el uso de DMA. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación. p. 347
+        </p>
+        </div>
+
+<br>
+        <div style="margin: 20x 0; text-align: center;">
+          <img src="../../assets/5.2.4_dma.png" alt="Imagen Tema 1" style="max-width:55%; border-radius:6px;" />
+      
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Fuente: <a href="https://open4tech.com/direct-memory-access-dma-in-embedded-systems/" target="_blank" style="color: #666; text-decoration: none;"> E/S POR INTERRUPCIONES. (s.f.). Open4Tech Recuperado: Junio 6, 2025, de https://open4tech.com/direct-memory-access-dma-in-embedded-systems/</a>
+          </p>
+        </div>
+
+        <!-- ============== FIN DEL CONTENIDO DEL TEMA ============== -->
+
+          <!-- Agrega tantos subtemas (botón + panel) como necesites -->
+
+         <div style="display: flex; justify-content: center; margin-top: 15px;">
+          <a href="../actividades/actividad.5.2.html">
+            <button>Actividad del tema 5.2</button>
+          </a>
+          </div>
+
+
+          <!-- Navegación “Anterior / Siguiente Tema” -->
+          <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+
+            <a href="5.2.3.html">
+              <button>&laquo; Tema Anterior</button>
+            </a>
+
+            <a href="5.3.html">
+              <button>Próximo Tema &raquo;</button>
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <div class="footer-text">
+        Unidad V - Dispositivos de Entrada y Salida • Hecho por: Núñez Anrubio Jonathan M. & Peña Razo Christian Y. • Fecha de elaboración: [06/Jun/2025]
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==== INCLUIMOS EL SCRIPT GENERAL ==== -->
+  <script src="../../js/scripts.js"></script>
+</body>
+</html>

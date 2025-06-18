@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.2.1 Objetivos del software de E/S</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <!-- --------------------------------------------
+         LOGO IZQUIERDO (clase .logo-left)
+         -------------------------------------------- -->
+    <div class="logo-left">
+      <!-- Cambia src="assets/logo-escom.png" por tu ruta real -->
+      <img src="../../assets/logo1.png" alt="Logo ESCOM" />
+    </div>
+
+    <!-- --------------------------------------------
+         TEXTO CENTRADO (clase .header-text)
+         -------------------------------------------- -->
+    <div class="header-text">
+      <p>Instituto Politécnico Nacional</p>
+      <p>Escuela Superior de Cómputo</p>
+      <p>Ingeniería en Sistemas Computacionales</p>
+      <p>Sistemas Operativos</p>
+      <p>Unidad V: Dispositivos de Entrada y Salida</p>
+    </div>
+
+    <!-- --------------------------------------------
+         LOGO DERECHO (clase .logo-right)
+         -------------------------------------------- -->
+    <div class="logo-right">
+      <!-- Cambia src="assets/logo-ipn.png" por tu ruta real -->
+      <img src="../../assets/logo2.png" alt="Logo IPN" />
+    </div>
+  </div>
+</header>
+
+    <!-- ===================== NAV PRINCIPAL ===================== -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="#" id="btnMostrarIndice">Índice</a></li>
+        <li><a href="../referencias.html">Referencias</a></li>
+      </ul>
+    </nav>
+
+    <!-- ===================== BARRA LATERAL (ÍNDICE) ===================== -->
+    <div class="main-container">
+      <aside class="sidebar collapsed">
+        <!-- Botón para mostrar/ocultar la barra lateral -->
+        <button class="toggle-btn">☰ Índice</button>
+        <ul class="indice-list">
+
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="5.1.html">5.1 Principios del Hardware de E/S</a></li>
+          <li><a href="5.1.1.html">5.1.1 Dispositivos de E/S</a></li>
+          <li><a href="5.1.2.html">5.1.2 Controladores de Dispositivos</a></li>
+          <li><a href="5.1.3.html">5.1.3 Interrupciones</a></li>
+          <li><a href="5.1.4.html">5.1.4 Acceso de Memoria Directo (DMA)</a></li>
+          <li><a href="5.2.html">5.2 Principios del Software de E/S</a></li>
+          <li><a href="5.2.1.html">5.2.1 Objetivos del Software de E/S</a></li>
+          <li><a href="5.2.2.html">5.2.2 E/S programadas</a></li>
+          <li><a href="5.2.3.html">5.2.3 E/S Manejadas por Interrupciones</a></li>
+          <li><a href="5.2.4.html">5.2.4 E/S Usando DMA</a></li>
+          <li><a href="5.3.html">5.3 Capas de Software</a></li>
+          <li><a href="5.3.1.html">5.3.1 Manejador de Interrupciones</a></li>
+          <li><a href="5.3.2.html">5.3.2 Controladores de los Dispositivos</a></li>
+          <li><a href="5.3.3.html">5.3.3 Software modo usuario para E/S</a></li>
+
+          <li><a href="../referencias.html">Referencias</a></li>
+        </ul>
+      </aside>
+
+
+      <!-- ===================== ÁREA DE CONTENIDO ===================== -->
+      <main class="content-area">
+        <h1 class="page-title">5.2.1 Objetivos del software de E/S</h1>
+
+        <!-- ================ CONTENIDO DEL TEMA ================ -->
+
+        <!-- == PÁRRAFOS DE TEXTO == -->
+<h2 class="subtitulo">Independencia de Dispositivos</h2>
+        <p>
+          El objetivo principal del software de E/S es lograr la independencia de dispositivos, es decir, permitir que los programas puedan acceder a distintos dispositivos (discos duros, CD-ROM, USB, etc.) sin necesidad de que sean modificados para cada tipo de hardware, por ejemplo, un programa que lee un archivo debe funcionar igual si el archivo está en un disco duro o en una memoria USB.
+        </p>
+
+        <!-- == IMAGEN ILUSTRATIVA == -->
+        <div style="margin: 20x 0; text-align: center;">
+          <img src="../../assets/5.2.1_Almacenamiento.png" alt="Imagen Tema 1" style="max-width:50%; border-radius:6px;" />
+        
+ 
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Fuente: <a href="https://laotraescucha.com/memorias-usb-y-discos-duros-test-y-resultados-de-profeco/" target="_blank" style="color: #666; text-decoration: none;">Anónimo (2022, Mayo 03). Memorias USB y discos duros; test y resultados de Profeco. La Otra Escucha. Recuperado: Junio 6, 2025, de https://laotraescucha.com/memorias-usb-y-discos-duros-test-y-resultados-de-profeco/</a>
+          </p>
+        </div>
+<h2 class="subtitulo">Denominación Uniforme</h2>
+        <p>
+          También se busca una denominación uniforme, en donde todos los archivos y dispositivos deben identificarse mediante nombres simples (cadenas o enteros), sin necesidad de saber qué tipo de dispositivo hay detrás. En sistemas como UNIX, todos los dispositivos se integran como en una jerarquía de archivos, de modo que, una memoria USB puede montarse en un directorio como /usr/ast/respaldo, y los archivos escritos allí se almacenan en ese dispositivo, sin que el usuario tenga que preocuparse por ello.
+        </p>
+<br>
+<h2 class="subtitulo">Manejo de Errores</h2>
+        <p>
+          Otro aspecto esencial es el manejo de errores, los errores deben tratarse en los niveles más cercanos al hardware, ya que, si un controlador detecta un error de lectura, debe intentar corregirlo automáticamente. Muchos de los errores son temporales y se solucionan repitiendo la operación. Solo si los niveles más bajos no pueden resolver el problema, este debe ser notificado a los niveles superiores.
+        </p>
+
+        <div style="margin: 20x 0; text-align: center;">
+          <img src="../../assets/5.2.1_hardware.png" alt="Imagen Tema 1" style="max-width:30%; border-radius:6px;" />
+        
+
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Fuente: <a href="https://madicona.blogspot.com/2013/02/tipos-de-errores-comunes-en-una-pc.html" target="_blank" style="color: #666; text-decoration: none;">Irala Hernández, E. (2013, Febrero 21). MANEJO Y OPERACIÓN DE EQUIPOS DE COMPUTO. Madicona. Recuperado: Junio 6, 2025, de https://madicona.blogspot.com/2013/02/tipos-de-errores-comunes-en-una-pc.html/</a>
+          </p>
+        </div>
+<h2 class="subtitulo">Uso de Búferes</h2>
+        <p>
+          El uso de búferes también es crucial, ya que muchas veces los datos no pueden ir directamente del dispositivo a su destino final, así que se almacenan temporalmente en búferes, por ejemplo, tenemos los paquetes de red primero se almacenan y examinan antes de saber a dónde enviarlos. En dispositivos con restricciones de tiempo, como los de audio digital, los búferes ayudan a mantener un flujo constante de datos y evitan problemas como sub-desbordamientos, sin embargo, el uso de búferes implica copiado de datos y puede afectar el rendimiento.
+        </p>
+<br>
+<h2 class="subtitulo">Transferencias Síncronas y Asíncronas</h2>
+        <p>
+         Las transferencias síncronas y asíncronas son otro tema importante, aunque la mayoría de las operaciones de E/S son asíncronas (la CPU inicia la operación y continúa con otra tarea hasta recibir una interrupción), los programas de usuario suelen trabajar con operaciones de bloqueo (síncronas), donde el programa se suspende hasta que los datos están disponibles. El sistema operativo se encarga de simular este comportamiento para simplificar el desarrollo de programas.
+        </p>
+
+<h3 class="subtitulo">Transferencia Asíncrona</h3>        
+
+        <div style="margin: 20x 0; text-align: center;">
+          <img src="../../assets/5.2.1_asincro.png" alt="Imagen Tema 1" style="max-width:30%; border-radius:6px;" />
+        
+
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Fuente: <a href="https://pc-solucion.es/transmision-sincrona-y-asincrona/" target="_blank" style="color: #666; text-decoration: none;"> Transmisión Síncrona y Asíncrona. (s. f.). PC Solución. Recuperado: Junio 6, 2025, de https://pc-solucion.es/transmision-sincrona-y-asincrona/</a>
+          </p>
+        </div>
+<h3 class="subtitulo">Transferencia Síncrona</h3>
+
+        <div style="margin: 20x 0; text-align: center;">
+          <img src="../../assets/5.2.1_sincro.png" alt="Imagen Tema 1" style="max-width:30%; border-radius:6px;" />
+        
+
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Fuente: <a href="https://pc-solucion.es/transmision-sincrona-y-asincrona/" target="_blank" style="color: #666; text-decoration: none;"> Transmisión Síncrona y Asíncrona. (s. f.). PC Solución. Recuperado: Junio 6, 2025, de https://pc-solucion.es/transmision-sincrona-y-asincrona/</a>
+          </p>
+        </div>
+<h2 class="subtitulo">Dispositivos Compartidos y Dedicados</h2>
+
+        <p>
+         Finalmente, se distingue entre dispositivos compartidos (como discos, que pueden ser usados por varios usuarios a la vez) y dispositivos dedicados (como unidades de cinta, que deben ser usados por un solo usuario a la vez). El sistema operativo debe gestionar ambos tipos correctamente, evitando conflictos como los interbloqueos cuando múltiples usuarios compiten por un recurso exclusivo.
+        </p>
+
+        <div style="margin: 20px 0; text-align: left;">
+        <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos: 5.2.1 Objetivos del software de E/S. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación. pp. 343-344
+        </p>
+        </div>
+
+          <!-- Navegación “Anterior / Siguiente Tema” -->
+          <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+
+            <a href="5.2.html">
+              <button>&laquo; Tema Anterior</button>
+            </a>
+
+            <a href="5.2.2.html">
+              <button>Próximo Tema &raquo;</button>
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <div class="footer-text">
+        Unidad V - Dispositivos de Entrada y Salida • Hecho por: Núñez Anrubio Jonathan M. & Peña Razo Christian Y. • Fecha de elaboración: [06/Jun/2025]
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==== INCLUIMOS EL SCRIPT GENERAL ==== -->
+  <script src="../../js/scripts.js"></script>
+</body>
+</html>

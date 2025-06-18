@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.1.2 Controladores de Dispositivos</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<body>
+  <div class="wrapper">
+   <!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <!-- --------------------------------------------
+         LOGO IZQUIERDO (clase .logo-left)
+         -------------------------------------------- -->
+    <div class="logo-left">
+      <!-- Cambia src="assets/logo-escom.png" por tu ruta real -->
+      <img src="../../assets/logo1.png" alt="Logo ESCOM" />
+    </div>
+
+    <!-- --------------------------------------------
+         TEXTO CENTRADO (clase .header-text)
+         -------------------------------------------- -->
+    <div class="header-text">
+      <p>Instituto Politécnico Nacional</p>
+      <p>Escuela Superior de Cómputo</p>
+      <p>Ingeniería en Sistemas Computacionales</p>
+      <p>Sistemas Operativos</p>
+      <p>Unidad V: Dispositivos de Entrada y Salida</p>
+    </div>
+
+    <!-- --------------------------------------------
+         LOGO DERECHO (clase .logo-right)
+         -------------------------------------------- -->
+    <div class="logo-right">
+      <!-- Cambia src="assets/logo-ipn.png" por tu ruta real -->
+      <img src="../../assets/logo2.png" alt="Logo IPN" />
+    </div>
+  </div>
+</header>
+
+    <!-- ===================== NAV PRINCIPAL ===================== -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="#" id="btnMostrarIndice">Índice</a></li>
+        <li><a href="../referencias.html">Referencias</a></li>
+      </ul>
+    </nav>
+
+    <!-- ===================== BARRA LATERAL (ÍNDICE) ===================== -->
+    <div class="main-container">
+      <aside class="sidebar collapsed">
+        <!-- Botón para mostrar/ocultar la barra lateral -->
+        <button class="toggle-btn">☰ Índice</button>
+        <ul class="indice-list">
+          <!-- Coloca aquí los enlaces a tus páginas: inicio, cada tema/subtema y referencia -->
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="5.1.html">5.1 Principios del Hardware de E/S</a></li>
+          <li><a href="5.1.1.html">5.1.1 Dispositivos de E/S</a></li>
+          <li><a href="5.1.2.html">5.1.2 Controladores de Dispositivos</a></li>
+          <li><a href="5.1.3.html">5.1.3 Interrupciones</a></li>
+          <li><a href="5.1.4.html">5.1.4 Acceso de Memoria Directo (DMA)</a></li>
+          <li><a href="5.2.html">5.2 Principios del Software de E/S</a></li>
+          <li><a href="5.2.1.html">5.2.1 Objetivos del Software de E/S</a></li>
+          <li><a href="5.2.2.html">5.2.2 E/S programadas</a></li>
+          <li><a href="5.2.3.html">5.2.3 E/S Manejadas por Interrupciones</a></li>
+          <li><a href="5.2.4.html">5.2.4 E/S Usando DMA</a></li>
+          <li><a href="5.3.html">5.3 Capas de Software</a></li>
+          <li><a href="5.3.1.html">5.3.1 Manejador de Interrupciones</a></li>
+          <li><a href="5.3.2.html">5.3.2 Controladores de los Dispositivos</a></li>
+          <li><a href="5.3.3.html">5.3.3 Software modo usuario para E/S</a></li>
+          <!-- … más temas … -->
+          <li><a href="../referencias.html">Referencias</a></li>
+        </ul>
+      </aside>
+
+
+      <!-- ===================== ÁREA DE CONTENIDO ===================== -->
+      <main class="content-area">
+        <h1 class="page-title">5.1.2 Controladores de Dispositivos</h1>
+
+        <!-- ================ CONTENIDO DEL TEMA ================ -->
+        <!-- Aquí pegas tu investigación: texto, imágenes, videos, tablas, etc. -->
+        <!-- ================== EJEMPLOS de elementos ================== -->
+
+        <!-- == PÁRRAFOS DE TEXTO == -->
+        <p>
+          Un controlador de dispositivo es un software cuya función es la de indicar al sistema operativo y otros Softwares el modo en el cual comunicarse con una pieza de hardware.
+        </p>
+        <p>
+          <!-- Más texto… -->
+        </p>
+
+        
+
+        <!-- == VIDEO EMBEBIDO == -->
+        <!-- Por ejemplo, si tienes un video en YouTube, usa esto: -->
+        <div style="margin: 20px 0; text-align: center;">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/RULRzrg3auY?si=3s5A6yOYiSWcPkd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+
+          <p>
+            <!-- Aquí dentro colocas el texto que mostrará/ocultará al hacer clic en “Ver más detalles sobre X” -->
+            Por ejemplo, los controladores de impresoras comunican al sistema operativo, así como también a cualquiera sea el programa en el cual se encuentre abierto el documento a imprimir, cómo imprimir la información de manera exacta.
+            La misma idea general se aplica a tarjetas gráficas, teclados, monitores, etc.
+
+          </p>
+          <!-- == IMAGEN ILUSTRATIVA == -->
+        <div style="margin: 20px 0; text-align: center;">
+          <!-- Pon aquí la imagen con tu ruta, por ejemplo:
+               <img src="../assets/tema1/diagrama.png" alt="Diagrama Tema 1" style="max-width:100%; border-radius:6px;">
+          -->
+          <img src="../../assets/ejemploControlador.jpg" alt="Imagen 5.1.2" style="max-width:25%; border-radius:6px;" />
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Fuente: <a href="https://sora.chatgpt.com/" target="_blank" style="color: #666; text-decoration: none;">OpenAI. (2025). Imagen generada con Sora [Imagen generada por IA]. https://sora.chatgpt.com/</a>
+          </p>
+          
+        </div>
+
+        <!-- ============== FIN DEL CONTENIDO DEL TEMA ============== -->
+
+        
+
+          <!-- Navegación “Anterior / Siguiente Tema” -->
+          <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+            <!-- Si existe tema anterior, habilita el enlace; si no, déjalo deshabilitado o quítalo -->
+            <a href="5.1.1.html">
+              <button>&laquo; Tema Anterior</button>
+            </a>
+            <!-- Si existe tema siguiente -->
+            <a href="5.1.3.html">
+              <button>Próximo Tema &raquo;</button>
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <div class="footer-text">
+        Unidad V - Dispositivos de Entrada y Salida • Hecho por: Núñez Anrubio Jonathan M. & Peña Razo Christian Y. • Fecha de elaboración: [06/Jun/2025]
+      </div>
+    </footer>
+  </div>
+
+  <!-- ==== INCLUIMOS EL SCRIPT GENERAL ==== -->
+  <script src="../../js/scripts.js"></script>
+</body>
+</html>

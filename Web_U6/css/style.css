@@ -1,0 +1,331 @@
+/* ───────────────────────────────────────────────────────────── */
+/*                 style.css (versión base)                     */
+/* ───────────────────────────────────────────────────────────── */
+
+/* ==== RESET BÁSICO ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==== VARIABLES DE COLOR ==== */
+:root {
+--color-principal: #0a5289; /* Azul institucional */
+--color-secundario: #F0F0F0; /* Fondo gris claro */
+--color-terciario: #e6ecf1;      /* Fondo claro */
+--color-texto: #333333;          /* Texto oscuro */
+--color-acento: #FF6F61;         /* Acento coral */
+--color-barra-lateral: #1F2A38;  /* Fondo de sidebar */
+--color-hover: #3B6C94;          /* Hover azul suave */
+--color-burdeos-institucional: #7b003b;
+
+}
+
+/* ==== TIPOGRAFÍA Y BODY ==== */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: var(--color-texto);
+  background-color: var(--color-secundario);
+  line-height: 1.5;
+}
+
+/* ==== CONTENEDOR GENERAL ==== */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==== HEADER (LOGOS + DATOS ESCUELA) ==== */
+/* ───────────────────────────────────────────────────────────── */
+/*                 style.css (A PARTIR DEL HEADER)             */
+/* ───────────────────────────────────────────────────────────── */
+
+/* ───────────────────────────────────────────────────────────── */
+/*                 Ajustes para centrar texto en el header      */
+/* ───────────────────────────────────────────────────────────── */
+
+/* 1) Hacemos que el contenedor interno .header-inner sea RELATIVE. */
+header.site-header .header-inner {
+  position: relative;              /* Para que los hijos en absolute se posicionen sobre él */
+  display: flex;
+  align-items: center;             /* Centrar verticalmente logos */
+  justify-content: space-between;  /* Mantiene logos a los extremos */
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* 2) Convertimos .header-text en ABSOLUTE y lo centramos con left:50% + translateX(-50%) */
+.header-text {
+  position: absolute;              /* Saca el texto del flujo flex y permite centrarlo al 50% */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;              /* Centra cada <p> dentro del bloque */
+  /* Eliminamos flex:1 y márgenes horizontales, ahora no los necesitamos */
+  /* flex: 1; */
+  /* margin: 0 20px; */
+  line-height: 1.2;
+}
+
+/* 3) Ajuste de cada línea de texto en el header */
+.header-text p {
+  font-size: 20px;
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+/* 4) Los logos siguen igual (alineados con flexbox a la izquierda/derecha) */
+.logo-left img {
+  height: 125px;
+  width: auto;
+}
+
+.logo-right img {
+  height: 135px;
+  width: auto;
+}
+
+/* 5) Mantén el height del header según lo tenías (por ejemplo 140px) */
+header.site-header {
+  background-color: #0D4F8B;
+  color: white;
+  height: 170px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* 6) En pantallas pequeñas, permitimos que el texto baje debajo de los logos */
+@media screen and (max-width: 768px) {
+  header.site-header {
+    height: auto;
+    padding: 20px 0;
+  }
+  header.site-header .header-inner {
+    flex-direction: column;
+    position: relative; /* sigue siendo relative para el texto absoluto */
+  }
+  .header-text {
+    position: static;    /* en móvil, ya no usamos absolute */
+    transform: none;
+    margin: 15px 0;      /* espacio vertical entre logos */
+  }
+}
+
+
+/* ==== BARRA DE NAVEGACIÓN PRINCIPAL ==== */
+nav.main-nav {
+  background-color: #9ecffa;
+  border-bottom: 2px solid var(--color-principal);
+}
+nav.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+nav.main-nav ul li {
+  margin: 0 15px;
+}
+nav.main-nav ul li a {
+  display: block;
+  padding: 12px 8px;
+  text-decoration: none;
+  color: var(--color-principal);
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+nav.main-nav ul li a:hover {
+  background-color: var(--color-hover);
+  color: white;
+  border-radius: 4px;
+}
+
+/* ==== CONTENEDOR PRINCIPAL: BARRA LATERAL + CONTENIDO ==== */
+.main-container {
+  flex: 1;
+  display: flex;
+  background-color: var(--color-secundario);
+}
+
+/* ---- BARRA LATERAL (COLAPSABLE) ==== */
+.sidebar {
+  width: 250px;
+  background-color: var(--color-barra-lateral);
+  color: white;
+  transition: transform 0.3s ease;
+}
+.sidebar.collapsed {
+  transform: translateX(-240px);
+}
+.sidebar .toggle-btn {
+  background-color: var(--color-acento);
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+  text-align: left;
+}
+.sidebar .toggle-btn:hover {
+  background-color: var(--color-hover);
+}
+.sidebar .indice-list {
+  list-style: none;
+  margin-top: 10px;
+}
+.sidebar .indice-list li {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.sidebar .indice-list li:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+.sidebar .indice-list li a {
+  color: #FFF;
+  text-decoration: none;
+  display: block;
+}
+
+/* ==== ÁREA DE CONTENIDO ==== */
+.content-area {
+  flex: 1;
+  padding: 20px;
+}
+.content-area .page-title {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--color-principal);
+}
+.content-area .subtitulo {
+  font-size: 1.2rem;
+  margin: 15px 0 8px;
+  color: var(--color-principal);
+}
+
+/* ==== CLASES ÚTILES ==== */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.col-6 {
+  flex: 0 0 50%;
+}
+.col-12 {
+  flex: 0 0 100%;
+}
+
+/* ==== BOTÓN PARA MOSTRAR / OCULTAR CONTENIDO (ACCORDION) ==== */
+.accordion {
+  background-color: var(--color-principal);
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  margin-bottom: 5px;
+}
+.accordion:hover {
+  background-color: var(--color-hover);
+}
+.accordion.active {
+  background-color: var(--color-hover);
+}
+.panel {
+  display: none;
+  overflow: hidden;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+.panel ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc; /* Asegura que se vean los bullets */
+}
+
+.panel ul ul {
+  list-style-type: circle; /* Sublistas con estilo diferente */
+}
+
+
+/* ==== TABLAS ==== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+table, th, td {
+  border: 1px solid #ccc;
+}
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+}
+th {
+  background-color: var(--color-principal);
+  color: white;
+}
+
+/* ==== FORMULARIOS Y BOTONES ==== */
+button,
+input[type="button"],
+input[type="submit"] {
+  background-color: var(--color-acento);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+}
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background-color: var(--color-hover);
+}
+
+/* ==== PIE DE PÁGINA (FOOTER) ==== */
+footer.site-footer {
+  background-color: var(--color-principal);
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 0.9rem;
+}
+footer.site-footer .footer-text {
+  margin: 2px 0;
+}
+
+/* ==== RESPONSIVE (para pantallas < 768px) ==== */
+@media screen and (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+  .col-6 {
+    flex: 0 0 100%;
+  }
+  .sidebar {
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+}
