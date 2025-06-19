@@ -3,38 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5.1.3 Interrupciones</title>
+  <title>6.1.3 Implementación de matrices de acceso</title>
   <link rel="stylesheet" href="../../css/style.css" />
 </head>
 <body>
   <div class="wrapper">
+
     <!-- ===================== HEADER ===================== -->
 <header class="site-header">
   <div class="header-inner">
     <!-- --------------------------------------------
-         LOGO IZQUIERDO (clase .logo-left)
+         LOGO IZQUIERDO 
          -------------------------------------------- -->
     <div class="logo-left">
-      <!-- Cambia src="assets/logo-escom.png" por tu ruta real -->
       <img src="../../assets/logo1.png" alt="Logo ESCOM" />
     </div>
 
     <!-- --------------------------------------------
-         TEXTO CENTRADO (clase .header-text)
+         TEXTO CENTRADO 
          -------------------------------------------- -->
     <div class="header-text">
       <p>Instituto Politécnico Nacional</p>
       <p>Escuela Superior de Cómputo</p>
       <p>Ingeniería en Sistemas Computacionales</p>
       <p>Sistemas Operativos</p>
-      <p>Unidad V: Dispositivos de Entrada y Salida</p>
+      <p>Unidad VI: Seguridad y Virtualización</p>
     </div>
 
     <!-- --------------------------------------------
-         LOGO DERECHO (clase .logo-right)
+         LOGO DERECHO 
          -------------------------------------------- -->
     <div class="logo-right">
-      <!-- Cambia src="assets/logo-ipn.png" por tu ruta real -->
       <img src="../../assets/logo2.png" alt="Logo IPN" />
     </div>
   </div>
@@ -55,55 +54,36 @@
         <!-- Botón para mostrar/ocultar la barra lateral -->
         <button class="toggle-btn">☰ Índice</button>
         <ul class="indice-list">
-          <!-- Coloca aquí los enlaces a tus páginas: inicio, cada tema/subtema y referencia -->
           <li><a href="../index.html">Inicio</a></li>
-          <li><a href="5.1.html">5.1 Principios del Hardware de E/S</a></li>
-          <li><a href="5.1.1.html">5.1.1 Dispositivos de E/S</a></li>
-          <li><a href="5.1.2.html">5.1.2 Controladores de Dispositivos</a></li>
-          <li><a href="5.1.3.html">5.1.3 Interrupciones</a></li>
-          <li><a href="5.1.4.html">5.1.4 Acceso de Memoria Directo (DMA)</a></li>
-          <li><a href="5.2.html">5.2 Principios del Software de E/S</a></li>
-          <li><a href="5.2.1.html">5.2.1 Objetivos del Software de E/S</a></li>
-          <li><a href="5.2.2.html">5.2.2 E/S programadas</a></li>
-          <li><a href="5.2.3.html">5.2.3 E/S Manejadas por Interrupciones</a></li>
-          <li><a href="5.2.4.html">5.2.4 E/S Usando DMA</a></li>
-          <li><a href="5.3.html">5.3 Capas de Software</a></li>
-          <li><a href="5.3.1.html">5.3.1 Manejador de Interrupciones</a></li>
-          <li><a href="5.3.2.html">5.3.2 Controladores de los Dispositivos</a></li>
-          <li><a href="5.3.3.html">5.3.3 Software modo usuario para E/S</a></li>
-          <!-- … más temas … -->
+          <li><a href="6.1.html">6.1 El ambiente de seguridad</a></li>
+          <li><a href="6.1.1.html">6.1.1 Seguridad en los sistemas operativos</a></li>
+          <li><a href="6.1.2.html">6.1.2 Control de acceso a los recursos</a></li>
+          <li><a href="6.1.3.html">6.1.3 Implementación de matrices de acceso</a></li>
+          <li><a href="6.1.4.html">6.1.4 Modelos formales de seguridad</a></li>
+          <li><a href="6.2.html">6.2 Virtualización</a></li>
+          <li><a href="6.2.1.html">6.2.1 Emulación</a></li>
+          <li><a href="6.2.2.html">6.2.2 Virtualización asistida por hardware</a></li>
+          <li><a href="6.2.3.html">6.2.3 Paravirtualización</a></li>
+          <li><a href="6.2.4.html">6.2.4 Contenedores</a></li>
           <li><a href="../referencias.html">Referencias</a></li>
         </ul>
       </aside>
 
-
       <!-- ===================== ÁREA DE CONTENIDO ===================== -->
       <main class="content-area">
-        <h1 class="page-title">5.1.3 Interrupciones</h1>
+        <h1 class="page-title">6.1.3 Implementación de matrices de acceso</h1>
 
         <!-- ================ CONTENIDO DEL TEMA ================ -->
-        <!-- Aquí pegas tu investigación: texto, imágenes, videos, tablas, etc. -->
-        <!-- ================== EJEMPLOS de elementos ================== -->
-
-        <!-- == PÁRRAFOS DE TEXTO == -->
         <p>
           El mecanismo de interrupciones permite que el CPU responda a eventos asíncronos, como cuando un dispositivo necesita atención. El CPU detecta una señal en la línea de petición de interrupción, guarda su estado, salta a una rutina especial llamada manejador de interrupciones, atiende el evento y luego retoma la ejecución previa.
         </p>
-        <p>
-          <!-- Más texto… -->
-        </p>
 
-        
-
-        <!-- == VIDEO EMBEBIDO == -->
-        <!-- Por ejemplo, si tienes un video en YouTube, usa esto: -->
         <div style="margin: 20px 0; text-align: center;">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/vusZZtiVBqs?si=8mZOfXPo5RSg0Oq3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-
         
         <h2 class="subtitulo">Tipos de Interrupciones</h2>
-        <!-- == ACORDEÓN: BOTÓN PARA MOSTRAR DETALLES ADICIONALES == -->
+
         <button class="accordion">Las interrupciones pueden clasificarse en:</button>
         <div class="panel">
           <p>
@@ -124,7 +104,6 @@
               <td>Enmascarables</td>
               <td>pueden desactivarse temporalmente para evitar interrupciones durante operaciones críticas.</td>
             </tr>
-            <!-- Agrega más filas según lo necesites -->
           </tbody>
         </table>
         </div>
@@ -143,7 +122,7 @@
         se usan para eventos como fallos de página o errores como división por cero. También son utilizadas por llamadas al sistema hechas por programas.
         </p>
          <h2 class="subtitulo">Ejecución y manejo</h2>
-        <!-- == ACORDEÓN: BOTÓN PARA MOSTRAR DETALLES ADICIONALES == -->
+
         <button class="accordion">El sistema utiliza estos métodos para el manejo de las interrupciones:</button>
         <div class="panel">
           <p>
@@ -165,22 +144,16 @@
             <tr>
               <td>Ejemplo: Solaris</td>
               <td><p>usa hilos del núcleo para manejar interrupciones con diferentes prioridades, permitiendo ejecución concurrente en sistemas multiprocesador y priorizando tareas críticas.</p></td>
-            <!-- Agrega más filas según lo necesites -->
           </tbody>
         </table>
         </div>
-        <!-- ============== FIN DEL CONTENIDO DEL TEMA ============== -->
 
-        
-
-          <!-- Navegación “Anterior / Siguiente Tema” -->
+   <!-- ===================== BOTONES ===================== -->    
           <div style="margin-top: 20px; display: flex; justify-content: space-between;">
-            <!-- Si existe tema anterior, habilita el enlace; si no, déjalo deshabilitado o quítalo -->
-            <a href="5.1.2.html">
+            <a href="6.1.2.html">
               <button>&laquo; Tema Anterior</button>
             </a>
-            <!-- Si existe tema siguiente -->
-            <a href="5.1.4.html">
+            <a href="6.1.4.html">
               <button>Próximo Tema &raquo;</button>
             </a>
           </div>
@@ -191,12 +164,12 @@
     <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer">
       <div class="footer-text">
-        Unidad V - Dispositivos de Entrada y Salida • Hecho por: Núñez Anrubio Jonathan M. & Peña Razo Christian Y. • Fecha de elaboración: [06/Jun/2025]
+        Unidad VI // Seguridad y Virtualización • Hecho por: Núñez Anrubio Jonathan M. & Peña Razo Christian Y. • Fecha de elaboración: [27/Jun/2025]
       </div>
     </footer>
   </div>
 
-  <!-- ==== INCLUIMOS EL SCRIPT GENERAL ==== -->
+  <!-- ==== SCRIPT ==== -->
   <script src="../../js/scripts.js"></script>
 </body>
 </html>

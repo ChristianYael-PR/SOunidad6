@@ -3,38 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5.2 Principios del software de E/S</title>
+  <title>6.2 Virtualización</title>
   <link rel="stylesheet" href="../../css/style.css" />
 </head>
 <body>
   <div class="wrapper">
+
     <!-- ===================== HEADER ===================== -->
 <header class="site-header">
   <div class="header-inner">
     <!-- --------------------------------------------
-         LOGO IZQUIERDO (clase .logo-left)
+         LOGO IZQUIERDO 
          -------------------------------------------- -->
     <div class="logo-left">
-      <!-- Cambia src="assets/logo-escom.png" por tu ruta real -->
       <img src="../../assets/logo1.png" alt="Logo ESCOM" />
     </div>
  
     <!-- --------------------------------------------
-         TEXTO CENTRADO (clase .header-text)
+         TEXTO CENTRADO 
          -------------------------------------------- -->
     <div class="header-text">
       <p>Instituto Politécnico Nacional</p>
       <p>Escuela Superior de Cómputo</p>
       <p>Ingeniería en Sistemas Computacionales</p>
       <p>Sistemas Operativos</p>
-      <p>Unidad V: Dispositivos de Entrada y Salida</p>
+      <p>Unidad VI: Seguridad y Virtualización</p>
     </div>
 
     <!-- --------------------------------------------
-         LOGO DERECHO (clase .logo-right)
+         LOGO DERECHO 
          -------------------------------------------- -->
     <div class="logo-right">
-      <!-- Cambia src="assets/logo-ipn.png" por tu ruta real -->
       <img src="../../assets/logo2.png" alt="Logo IPN" />
     </div>
   </div>
@@ -55,40 +54,30 @@
         <!-- Botón para mostrar/ocultar la barra lateral -->
         <button class="toggle-btn">☰ Índice</button>
         <ul class="indice-list">
-  
           <li><a href="../index.html">Inicio</a></li>
-          <li><a href="5.1.html">5.1 Principios del Hardware de E/S</a></li>
-          <li><a href="5.1.1.html">5.1.1 Dispositivos de E/S</a></li>
-          <li><a href="5.1.2.html">5.1.2 Controladores de Dispositivos</a></li>
-          <li><a href="5.1.3.html">5.1.3 Interrupciones</a></li>
-          <li><a href="5.1.4.html">5.1.4 Acceso de Memoria Directo (DMA)</a></li>
-          <li><a href="5.2.html">5.2 Principios del Software de E/S</a></li>
-          <li><a href="5.2.1.html">5.2.1 Objetivos del Software de E/S</a></li>
-          <li><a href="5.2.2.html">5.2.2 E/S programadas</a></li>
-          <li><a href="5.2.3.html">5.2.3 E/S Manejadas por Interrupciones</a></li>
-          <li><a href="5.2.4.html">5.2.4 E/S Usando DMA</a></li>
-          <li><a href="5.3.html">5.3 Capas de Software</a></li>
-          <li><a href="5.3.1.html">5.3.1 Manejador de Interrupciones</a></li>
-          <li><a href="5.3.2.html">5.3.2 Controladores de los Dispositivos</a></li>
-          <li><a href="5.3.3.html">5.3.3 Software modo usuario para E/S</a></li>
-
+          <li><a href="6.1.html">6.1 El ambiente de seguridad</a></li>
+          <li><a href="6.1.1.html">6.1.1 Seguridad en los sistemas operativos</a></li>
+          <li><a href="6.1.2.html">6.1.2 Control de acceso a los recursos</a></li>
+          <li><a href="6.1.3.html">6.1.3 Implementación de matrices de acceso</a></li>
+          <li><a href="6.1.4.html">6.1.4 Modelos formales de seguridad</a></li>
+          <li><a href="6.2.html">6.2 Virtualización</a></li>
+          <li><a href="6.2.1.html">6.2.1 Emulación</a></li>
+          <li><a href="6.2.2.html">6.2.2 Virtualización asistida por hardware</a></li>
+          <li><a href="6.2.3.html">6.2.3 Paravirtualización</a></li>
+          <li><a href="6.2.4.html">6.2.4 Contenedores</a></li>
           <li><a href="../referencias.html">Referencias</a></li>
         </ul>
       </aside>
 
-
       <!-- ===================== ÁREA DE CONTENIDO ===================== -->
       <main class="content-area">
-        <h1 class="page-title">5.2 Principios del software de E/S</h1>
+        <h1 class="page-title">6.2 Virtualización</h1>
 
         <!-- ================ CONTENIDO DEL TEMA ================ -->
-
-        <!-- == PÁRRAFOS DE TEXTO == -->
         <p>
          Dejando de lado los principios del hardware de E/S, ahora tenemos que tomar en cuenta los principios del software de E/S, el cual abarca un conjunto de rutinas del sistema operativo que ayuda a gestionar la comunicación entre sistema y dispositivos (memoria y CPU). El principal propósito es abstraer la complejidad del hardware, facilitar el acceso a dispositivos y optimizar el rendimiento del sistema. Esto parte en la organización del software estableciendo capas, existiendo dos capas básicas pero importantes:
         </p>
 
-        <!-- == ACORDEÓN: BOTÓN PARA MOSTRAR DETALLES ADICIONALES == -->
         <button class="accordion">Capas Inferiores</button>
         <div class="panel">
           <p>
@@ -96,7 +85,6 @@
           </p>
         </div>
 
-                <!-- == ACORDEÓN: BOTÓN PARA MOSTRAR DETALLES ADICIONALES == -->
         <button class="accordion">Capas Superiores</button>
         <div class="panel">
           <p>
@@ -114,7 +102,6 @@
         </p>
         </div>
 
-        <!-- == VIDEO EMBEBIDO == -->
         <div style="margin: 20px 0; text-align: center;">
           <iframe width="560" height="315"
             src="https://www.youtube.com/embed/AQQJmdOy878"
@@ -128,18 +115,12 @@
         </p>
         </div>
 
-
-  
-        <!-- ============== FIN DEL CONTENIDO DEL TEMA ============== -->
-
-          <!-- Navegación “Anterior / Siguiente Tema” -->
+    <!-- ===================== BOTONES ===================== -->  
           <div style="margin-top: 20px; display: flex; justify-content: space-between;">
-
-            <a href="5.1.4.html">
+            <a href="6.1.4.html">
               <button>&laquo; Tema Anterior</button>
             </a>
-
-            <a href="5.2.1.html">
+            <a href="6.2.1.html">
               <button>Próximo Tema &raquo;</button>
             </a>
           </div>
@@ -150,12 +131,12 @@
     <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer">
       <div class="footer-text">
-        Unidad V - Dispositivos de Entrada y Salida • Hecho por: Núñez Anrubio Jonathan M. & Peña Razo Christian Y. • Fecha de elaboración: [06/Jun/2025]
+        Unidad VI // Seguridad y Virtualización • Hecho por: Núñez Anrubio Jonathan M. & Peña Razo Christian Y. • Fecha de elaboración: [27/Jun/2025]
       </div>
     </footer>
   </div>
 
-  <!-- ==== INCLUIMOS EL SCRIPT GENERAL ==== -->
+  <!-- ==== SCRIPT ==== -->
   <script src="../../js/scripts.js"></script>
 </body>
 </html>

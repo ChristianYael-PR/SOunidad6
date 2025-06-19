@@ -3,39 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unidad V - Inicio</title>
+  <title>Unidad VI // Inicio</title>
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
   <div class="wrapper">
-    <!-- ===================== HEADER ===================== -->
+    
     <!-- ===================== HEADER ===================== -->
 <header class="site-header">
   <div class="header-inner">
     <!-- --------------------------------------------
-         LOGO IZQUIERDO (clase .logo-left)
+         LOGO IZQUIERDO 
          -------------------------------------------- -->
     <div class="logo-left">
-      <!-- Cambia src="assets/logo-escom.png" por tu ruta real -->
       <img src="../assets/logo1.png" alt="Logo ESCOM" />
     </div>
 
     <!-- --------------------------------------------
-         TEXTO CENTRADO (clase .header-text)
+         TEXTO CENTRADO 
          -------------------------------------------- -->
     <div class="header-text">
       <p>Instituto Politécnico Nacional</p>
       <p>Escuela Superior de Cómputo</p>
       <p>Ingeniería en Sistemas Computacionales</p>
       <p>Sistemas Operativos</p>
-      <p>Unidad V: Dispositivos de Entrada y Salida</p>
+      <p>Unidad VI: Seguridad y Virtualización</p>
     </div>
 
     <!-- --------------------------------------------
-         LOGO DERECHO (clase .logo-right)
+         LOGO DERECHO 
          -------------------------------------------- -->
     <div class="logo-right">
-      <!-- Cambia src="assets/logo-ipn.png" por tu ruta real -->
       <img src="../assets/logo2.png" alt="Logo IPN" />
     </div>
   </div>
@@ -56,65 +54,55 @@
         <!-- Botón para mostrar/ocultar la barra lateral -->
         <button class="toggle-btn">☰ Índice</button>
         <ul class="indice-list">
-
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="temas/5.1.html">5.1 Principios del Hardware de E/S</a></li>
-          <li><a href="temas/5.1.1.html">5.1.1 Dispositivos de E/S</a></li>
-          <li><a href="temas/5.1.2.html">5.1.2 Controladores de Dispositivos</a></li>
-          <li><a href="temas/5.1.3.html">5.1.3 Interrupciones</a></li>
-          <li><a href="temas/5.1.4.html">5.1.4 Acceso de Memoria Directo (DMA)</a></li>
-          <li><a href="temas/5.2.html">5.2 Principios del Software de E/S</a></li>
-          <li><a href="temas/5.2.1.html">5.2.1 Objetivos del Software de E/S</a></li>
-          <li><a href="temas/5.2.2.html">5.2.2 E/S programadas</a></li>
-          <li><a href="temas/5.2.3.html">5.2.3 E/S Manejadas por Interrupciones</a></li>
-          <li><a href="temas/5.2.4.html">5.2.4 E/S Usando DMA</a></li>
-          <li><a href="temas/5.3.html">5.3 Capas de Software</a></li>
-          <li><a href="temas/5.3.1.html">5.3.1 Manejador de Interrupciones</a></li>
-          <li><a href="temas/5.3.2.html">5.3.2 Controladores de los Dispositivos</a></li>
-          <li><a href="temas/5.3.3.html">5.3.3 Software modo usuario para E/S</a></li>
-
+          <li><a href="temas/6.1.html">6.1 El ambiente de seguridad</a></li>
+          <li><a href="temas/6.1.1.html">6.1.1 Seguridad en los sistemas operativos</a></li>
+          <li><a href="temas/6.1.2.html">6.1.2 Control de acceso a los recursos</a></li>
+          <li><a href="temas/6.1.3.html">6.1.3 Implementación de matrices de acceso</a></li>
+          <li><a href="temas/6.1.4.html">6.1.4 Modelos formales de seguridad</a></li>
+          <li><a href="temas/6.2.html">6.2 Virtualización</a></li>
+          <li><a href="temas/6.2.1.html">6.2.1 Emulación</a></li>
+          <li><a href="temas/6.2.2.html">6.2.2 Virtualización asistida por hardware</a></li>
+          <li><a href="temas/6.2.3.html">6.2.3 Paravirtualización</a></li>
+          <li><a href="temas/6.2.4.html">6.2.4 Contenedores</a></li>
           <li><a href="referencias.html">Referencias</a></li>
         </ul>
       </aside>
 
       <!-- ===================== ÁREA DE CONTENIDO ===================== -->
       <main class="content-area">
-        <h1 class="page-title">Bienvenid@ a la Unidad V</h1>
+        <h1 class="page-title">Bienvenid@ a la Unidad VI</h1>
 
-
+      <!-- ================ CONTENIDO // TEXTO INTRODUCTORIO ================ -->
             <p>
-              <!-- TEXTO INTRODUCTORIO: -->
-              Un sistema operativo no solo gestiona recursos computacionales esenciales como procesos, hilos, archivos y espacios de direcciones; también desempeña un papel clave en la administración de todos los periféricos de entrada y salida conectados al sistema. Esta responsabilidad implica coordinar la comunicación con los dispositivos, responder adecuadamente a las interrupciones generadas por ellos, y resolver fallos que puedan surgir durante su operación.
-
-Para facilitar el uso de los dispositivos, el sistema operativo ofrece una capa de abstracción que actúa como intermediaria entre el hardware y el software. Esta interfaz debe ser lo más uniforme posible para todos los tipos de dispositivos, permitiendo así que los programas puedan interactuar con ellos sin preocuparse por las diferencias específicas del hardware. Este enfoque de "independencia de dispositivo" mejora la portabilidad y simplifica el desarrollo de software.
-
-La gestión de entrada/salida representa una parte significativa del código del sistema operativo. Debido a su complejidad y su importancia para la estabilidad y eficiencia del sistema, la administración de E/S se divide en varios niveles funcionales, cada uno con responsabilidades concretas. Estos niveles cooperan para manejar solicitudes de E/S de manera ordenada, desde las llamadas del usuario hasta la ejecución física de la operación en el dispositivo.
-
-En el desarrollo de este tema, primero se exploran los fundamentos del hardware de entrada/salida: cómo se comunican los dispositivos con el procesador, los mecanismos de interrupciones, los registros de control, y las técnicas de transferencia de datos como el acceso directo a memoria (DMA). Luego se estudia el software de E/S, estructurado en capas como los controladores de dispositivos, las rutinas de manejo de interrupciones, y las interfaces de alto nivel.
-
-Posteriormente, se profundiza en el funcionamiento de dispositivos específicos, como discos duros, relojes del sistema, teclados y monitores, analizando tanto sus características físicas como los métodos empleados por el sistema operativo para controlarlos eficientemente.
-
-Finalmente, se aborda un tema cada vez más relevante: la gestión del consumo energético en sistemas modernos. Esto incluye estrategias para reducir el uso de energía sin comprometer el rendimiento, como la suspensión selectiva de dispositivos inactivos y el ajuste dinámico del rendimiento del procesador.
+La unidad de <b>“Seguridad y Virtualización”</b> aborda dos pilares fundamentales en el diseño y operación de los sistemas informáticos modernos. Por un lado, la <b>seguridad</b> se ocupa de proteger la confidencialidad, integridad y disponibilidad de los datos y servicios frente a amenazas cada vez más sofisticadas, que provienen tanto del interior de las organizaciones como del exterior, por otro, la <b>virtualización</b> ha revolucionado la forma en que desplegamos y gestionamos recursos de cómputo, permitiendo ejecutar múltiples máquinas virtuales o contenedores sobre un mismo hardware físico y optimizando la escalabilidad, la flexibilidad y el uso eficiente de los recursos.
             </p>
-           
+<br>          
+            <div style="width:100%; text-align:center;">
+              <img src="../assets/IndexSV.png" alt="Imagen Inicio Unidad V" style="max-width:65%; border-radius:8px;" />
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Fuente: <a href="https://phoenixnap.mx/glosario/virtualizaci%C3%B3n-de-seguridad" target="_blank" style="color: #666; text-decoration: none;"> Spasojevic, A. (2025, 13 enero). ¿Qué es la virtualización de la seguridad (seguridad virtualizada)? phoenixNAP IT Glossary. https://phoenixnap.mx/glosario/virtualizaci%C3%B3n-de-seguridad</a>
+          </p>
+            </div>
+<br>   
+            <p>
+Utilizaremos el término <b>seguridad</b> para hacer referencia al problema general, y mecanismos de protección para referirnos a los mecanismos específicos del sistema operativo, se hablará sobre la seguridad para ver cuál es la naturaleza del problema, más adelante analizaremos los mecanismos de protección y los modelos disponibles para ayudar a obtener seguridad, estableciendo soluciones. Esto permitirá entender amenazas, luego intrusos y pérdidas accidentales, y finalmente estudiar las soluciones nos permitirá tener una visión del ambiente de seguridad antes de meternos en la implementación de mecanismos específicos.
+            </p>
+<br>          
+            <p>
+En esta unidad exploraremos cómo la <b>virtualización</b>, al introducir una capa adicional de abstracción, redefine los vectores de ataque y exige nuevos mecanismos de protección, veremos cómo el aislamiento de máquinas virtuales o espacios de usuario aislados por contenedores puede reforzar la seguridad al contener el impacto de un compromiso, pero también puede abrir brechas si el hipervisor o el kernel no están debidamente protegidos. Profundizaremos en los riesgos asociados a la fuga de información entre máquinas virtuales, a la escalada de privilegios a través de vulnerabilidades en el software de virtualización y al abuso de imágenes de sistema no confiables.
+            </p>
 
         <div style="margin: 20px 0; text-align: left;">
         <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos: 5.2 Fundamentos del software de E/S. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación. p. 329
+            <a href="https://phoenixnap.mx/glosario/virtualizaci%C3%B3n-de-seguridad" target="_blank" style="color: #666; text-decoration: none;"> Spasojevic, A. (2025, 13 enero). ¿Qué es la virtualización de la seguridad (seguridad virtualizada)? phoenixNAP IT Glossary. https://phoenixnap.mx/glosario/virtualizaci%C3%B3n-de-seguridad</a>
         </p>
         </div>
 
-            <div style="width:100%; text-align:center;">
-              <img src="../assets/index_es.png" alt="Imagen Inicio Unidad V" style="max-width:65%; border-radius:8px;" />
-          <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Fuente: <a href="https://todocontrol.club/sistemas-de-control/control-de-entrada-y-salida-sistemas-operativos/" target="_blank" style="color: #666; text-decoration: none;"> Control de entrada y salida sistemas operativos (2024, Marzo 09). Todo Control. Recuperado: Junio 6, 2025, de https://todocontrol.club/sistemas-de-control/control-de-entrada-y-salida-sistemas-operativos/</a>
-          </p>
-            </div>
             <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
-            <!-- Si existe tema anterior, habilita el enlace; si no, déjalo deshabilitado o quítalo -->
-            
-            <!-- Si existe tema siguiente -->
-            <a href="temas/5.1.html">
+
+    <!-- ===================== BOTONES ===================== -->       
+            <a href="temas/6.1.html">
               <button>Comenzar &raquo;</button>
             </a>
           </div>
@@ -126,12 +114,12 @@ Finalmente, se aborda un tema cada vez más relevante: la gestión del consumo e
     <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer">
       <div class="footer-text">
-        Unidad V - Dispositivos de Entrada y Salida • Hecho por: Núñez Anrubio Jonathan M. & Peña Razo Christian Y. • Fecha de elaboración: [06/Jun/2025]
+        Unidad VI // Seguridad y Virtualización • Hecho por: Núñez Anrubio Jonathan M. & Peña Razo Christian Y. • Fecha de elaboración: [27/Jun/2025]
       </div>
     </footer>
   </div>
 
-  <!-- ==== INCLUIMOS EL SCRIPT GENERAL ==== -->
+  <!-- ==== SCRIPT ==== -->
   <script src="../js/scripts.js"></script>
 </body>
 </html>
