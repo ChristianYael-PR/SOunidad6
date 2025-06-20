@@ -83,91 +83,95 @@
 
   <!-- Pregunta 1 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>1. ¿Cuál es una función principal del subsistema de E/S del núcleo?</p>
-    <label><input type="radio" name="pregunta1" class="respuesta" data-correcto="falso" value="a" /> Optimizar la interfaz gráfica del sistema</label><br />
-    <label><input type="radio" name="pregunta1" class="respuesta" data-correcto="verdadero" value="b" /> Aislar al resto del sistema operativo de la complejidad del manejo de dispositivos</label><br />
-    <label><input type="radio" name="pregunta1" class="respuesta" data-correcto="falso" value="c" /> Controlar el acceso de usuarios a la red</label><br />
+    <p>1. ¿Qué distingue el concepto de seguridad de los mecanismos de protección?</p>
+    <label><input type="radio" name="pregunta1" class="respuesta" data-correcto="verdadero" value="a" /> La seguridad es el problema general; los mecanismos de protección son las técnicas específicas del sistema operativo</label><br />
+    <label><input type="radio" name="pregunta1" class="respuesta" data-correcto="falso" value="b" /> La seguridad se aplica solo a hardware, y los mecanismos de protección solo a software</label><br />
+    <label><input type="radio" name="pregunta1" class="respuesta" data-correcto="falso" value="c" /> La seguridad es responsabilidad del usuario, y los mecanismos de protección del administrador</label><br />
+    <label><input type="radio" name="pregunta1" class="respuesta" data-correcto="falso" value="d" /> La seguridad implica solo políticas legales, mientras que los mecanismos de protección implican solo políticas técnicas</label><br />
   </div>
 
-  <!-- Pregunta 2 (checkbox) -->
+  <!-- Pregunta 2 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>2. ¿Cuáles de los siguientes son tipos de dispositivos de E/S?</p>
-    <label><input type="checkbox" name="pregunta2" class="respuesta" data-correcto="verdadero" value="a" /> Dispositivos de almacenamiento</label><br />
-    <label><input type="checkbox" name="pregunta2" class="respuesta" data-correcto="verdadero" value="b" /> Dispositivos de transmisión</label><br />
-    <label><input type="checkbox" name="pregunta2" class="respuesta" data-correcto="falso" value="c" /> Dispositivos de compresión</label><br />
-    <label><input type="checkbox" name="pregunta2" class="respuesta" data-correcto="verdadero" value="d" /> Dispositivos de interfaz humana</label><br />
+    <p>2. ¿Cuál de las siguientes es una amenaza pasiva en un sistema operativo?</p>
+    <label><input type="radio" name="pregunta2" class="respuesta" data-correcto="verdadero" value="a" /> Interceptar y monitorear comunicaciones sin alterar datos</label><br />
+    <label><input type="radio" name="pregunta2" class="respuesta" data-correcto="falso" value="b" /> Inyección de código malicioso en la memoria</label><br />
+    <label><input type="radio" name="pregunta2" class="respuesta" data-correcto="falso" value="c" /> Eliminación de archivos críticos del sistema</label><br />
+    <label><input type="radio" name="pregunta2" class="respuesta" data-correcto="falso" value="d" /> Saturación de recursos para provocar denegación de servicio</label><br />
   </div>
 
   <!-- Pregunta 3 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>3. ¿Qué componente permite que varios dispositivos compartan el mismo conjunto de cables?</p>
-    <label><input type="radio" name="pregunta3" class="respuesta" data-correcto="falso" value="a" /> Puerto USB</label><br />
-    <label><input type="radio" name="pregunta3" class="respuesta" data-correcto="verdadero" value="b" /> Bus</label><br />
-    <label><input type="radio" name="pregunta3" class="respuesta" data-correcto="falso" value="c" /> Controlador</label><br />
+    <p>3. ¿Qué estructura asocia a cada objeto la lista ordenada de dominios que pueden acceder a él?</p>
+    <label><input type="radio" name="pregunta3" class="respuesta" data-correcto="falso" value="a" /> Lista de capacidades</label><br />
+    <label><input type="radio" name="pregunta3" class="respuesta" data-correcto="verdadero" value="b" /> Lista de control de acceso (ACL)</label><br />
+    <label><input type="radio" name="pregunta3" class="respuesta" data-correcto="falso" value="c" /> Matriz completa de protección</label><br />
+    <label><input type="radio" name="pregunta3" class="respuesta" data-correcto="falso" value="d" /> Token de autenticación</label><br />
   </div>
 
   <!-- Pregunta 4 (checkbox) -->
   <div style="margin-bottom: 15px;">
-    <p>4. ¿Qué funciones puede realizar un controlador integrado en un disco duro?</p>
-    <label><input type="checkbox" name="pregunta4" class="respuesta" data-correcto="verdadero" value="a" /> Gestión de errores</label><br />
-    <label><input type="checkbox" name="pregunta4" class="respuesta" data-correcto="verdadero" value="b" /> Almacenamiento en caché</label><br />
-    <label><input type="checkbox" name="pregunta4" class="respuesta" data-correcto="falso" value="c" /> Monitoreo del CPU</label><br />
-    <label><input type="checkbox" name="pregunta4" class="respuesta" data-correcto="verdadero" value="d" /> Almacenamiento en búfer</label><br />
+    <p>4. ¿Cuáles de estas ventajas aporta el uso de ACL en lugar de la matriz completa?</p>
+    <label><input type="checkbox" name="pregunta4" class="respuesta" data-correcto="verdadero" value="a" /> Ahorra espacio al almacenar solo entradas no vacías</label><br />
+    <label><input type="checkbox" name="pregunta4" class="respuesta" data-correcto="verdadero" value="b" /> Permite revocar permisos editando directamente la lista del objeto</label><br />
+    <label><input type="checkbox" name="pregunta4" class="respuesta" data-correcto="falso" value="c" /> Centraliza el control de todos los permisos en un único repositorio</label><br />
+    <label><input type="checkbox" name="pregunta4" class="respuesta" data-correcto="falso" value="d" /> Elimina la necesidad de autenticar usuarios</label><br />
   </div>
 
   <!-- Pregunta 5 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>5. ¿Qué hace un controlador de dispositivo?</p>
-    <label><input type="radio" name="pregunta5" class="respuesta" data-correcto="falso" value="a" /> Controla directamente la energía del hardware</label><br />
-    <label><input type="radio" name="pregunta5" class="respuesta" data-correcto="falso" value="b" /> Traduce el código fuente del sistema operativo</label><br />
-    <label><input type="radio" name="pregunta5" class="respuesta" data-correcto="verdadero" value="c" /> Indica al sistema cómo comunicarse con un hardware específico</label><br />
+    <p>5. ¿Cuál es la principal dificultad de las listas de capacidades?</p>
+    <label><input type="radio" name="pregunta5" class="respuesta" data-correcto="verdadero" value="a" /> Revocar derechos ya emitidos</label><br />
+    <label><input type="radio" name="pregunta5" class="respuesta" data-correcto="falso" value="b" /> Evaluar permisos ante cada solicitud de acceso</label><br />
+    <label><input type="radio" name="pregunta5" class="respuesta" data-correcto="falso" value="c" /> Asignar UID y GID a cada proceso</label><br />
+    <label><input type="radio" name="pregunta5" class="respuesta" data-correcto="falso" value="d" /> Agrupar permisos por objeto en lugar de por dominio</label><br />
   </div>
 
   <!-- Pregunta 6 (checkbox) -->
   <div style="margin-bottom: 15px;">
-    <p>6. ¿Qué tipos de interrupciones existen?</p>
-    <label><input type="checkbox" name="pregunta6" class="respuesta" data-correcto="verdadero" value="a" /> No enmascarables</label><br />
-    <label><input type="checkbox" name="pregunta6" class="respuesta" data-correcto="verdadero" value="b" /> Enmascarables</label><br />
-    <label><input type="checkbox" name="pregunta6" class="respuesta" data-correcto="falso" value="c" /> Independientes</label><br />
-    <label><input type="checkbox" name="pregunta6" class="respuesta" data-correcto="falso" value="d" /> Seriales</label><br />
+    <p>6. ¿Cuáles de estas operaciones son primitivas en los modelos formales de seguridad?</p>
+    <label><input type="checkbox" name="pregunta6" class="respuesta" data-correcto="verdadero" value="a" /> create object</label><br />
+    <label><input type="checkbox" name="pregunta6" class="respuesta" data-correcto="verdadero" value="b" /> remove right</label><br />
+    <label><input type="checkbox" name="pregunta6" class="respuesta" data-correcto="falso" value="c" /> authenticate user</label><br />
+    <label><input type="checkbox" name="pregunta6" class="respuesta" data-correcto="verdadero" value="d" /> delete domain</label><br />
   </div>
 
   <!-- Pregunta 7 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>7. ¿Qué hace el FLIH (First-Level Interrupt Handler)?</p>
-    <label><input type="radio" name="pregunta7" class="respuesta" data-correcto="falso" value="a" /> Copia los datos del dispositivo a la memoria</label><br />
-    <label><input type="radio" name="pregunta7" class="respuesta" data-correcto="verdadero" value="b" /> Realiza el cambio de contexto y registra la interrupción</label><br />
-    <label><input type="radio" name="pregunta7" class="respuesta" data-correcto="falso" value="c" /> Ejecuta el sistema operativo completo</label><br />
+    <p>7. ¿Qué pregunta central plantea el problema de seguridad (safety)?</p>
+    <label><input type="radio" name="pregunta7" class="respuesta" data-correcto="falso" value="a" /> Si los usuarios pueden crear nuevos dominios</label><br />
+    <label><input type="radio" name="pregunta7" class="respuesta" data-correcto="verdadero" value="b" /> Si, partiendo de un estado autorizado y comandos definidos, se puede llegar a un estado no autorizado</label><br />
+    <label><input type="radio" name="pregunta7" class="respuesta" data-correcto="falso" value="c" /> Si los grupos superpuestos generan conflictos de permisos</label><br />
+    <label><input type="radio" name="pregunta7" class="respuesta" data-correcto="falso" value="d" /> Si todos los archivos tienen su propia ACL</label><br />
   </div>
 
-  <!-- Pregunta 8 (checkbox) -->
+  <!-- Pregunta 8 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>8. ¿Qué eventos pueden generar interrupciones?</p>
-    <label><input type="checkbox" name="pregunta8" class="respuesta" data-correcto="verdadero" value="a" /> Fallos de página</label><br />
-    <label><input type="checkbox" name="pregunta8" class="respuesta" data-correcto="verdadero" value="b" /> Llamadas al sistema</label><br />
-    <label><input type="checkbox" name="pregunta8" class="respuesta" data-correcto="falso" value="c" /> Cambios en el fondo de pantalla</label><br />
-    <label><input type="checkbox" name="pregunta8" class="respuesta" data-correcto="verdadero" value="d" /> Errores como división por cero</label><br />
+    <p>8. ¿Por qué la simplicidad es clave para la seguridad de un sistema?</p>
+    <label><input type="radio" name="pregunta8" class="respuesta" data-correcto="verdadero" value="a" /> Menos código implica menos errores explotables</label><br />
+    <label><input type="radio" name="pregunta8" class="respuesta" data-correcto="falso" value="b" /> Permite añadir más funcionalidades rápidamente</label><br />
+    <label><input type="radio" name="pregunta8" class="respuesta" data-correcto="falso" value="c" /> Aumenta el rendimiento del hardware</label><br />
+    <label><input type="radio" name="pregunta8" class="respuesta" data-correcto="falso" value="d" /> Evita la necesidad de autenticación</label><br />
   </div>
 
-  <!-- Pregunta 9 (radio) -->
+  <!-- Pregunta 9 (checkbox) -->
   <div style="margin-bottom: 15px;">
-    <p>9. ¿Cuál es la ventaja principal del uso de DMA frente a PIO?</p>
-    <label><input type="radio" name="pregunta9" class="respuesta" data-correcto="verdadero" value="a" /> Libera al CPU de la gestión directa de transferencias</label><br />
-    <label><input type="radio" name="pregunta9" class="respuesta" data-correcto="falso" value="b" /> Reduce el tamaño de la memoria RAM</label><br />
-    <label><input type="radio" name="pregunta9" class="respuesta" data-correcto="falso" value="c" /> Aumenta el voltaje de transferencia</label><br />
+    <p>9. ¿Qué caracteriza a un estado no autorizado en la matriz de protección?</p>
+    <label><input type="checkbox" name="pregunta9" class="respuesta" data-correcto="verdadero" value="a" /> Contiene entradas que otorgan permisos indebidos</label><br />
+    <label><input type="checkbox" name="pregunta9" class="respuesta" data-correcto="verdadero" value="b" /> Ha sido alcanzado mediante comandos de protección mal regulados</label><br />
+    <label><input type="checkbox" name="pregunta9" class="respuesta" data-correcto="falso" value="c" /> Solo aparece en sistemas monousuario</label><br />
+    <label><input type="checkbox" name="pregunta9" class="respuesta" data-correcto="falso" value="d" /> Implica que no hay usuarios autenticados</label><br />
   </div>
 
-  <!-- Pregunta 10 (checkbox) -->
+  <!-- Pregunta 10 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>10. ¿Cuáles de las siguientes afirmaciones son verdaderas sobre el DMA?</p>
-    <label><input type="checkbox" name="pregunta10" class="respuesta" data-correcto="verdadero" value="a" /> Puede transferir datos sin intervención del CPU</label><br />
-    <label><input type="checkbox" name="pregunta10" class="respuesta" data-correcto="falso" value="b" /> Solo transfiere datos en el espacio de usuario</label><br />
-    <label><input type="checkbox" name="pregunta10" class="respuesta" data-correcto="verdadero" value="c" /> Utiliza líneas de solicitud y reconocimiento (DMA-request y DMA-acknowledge)</label><br />
-    <label><input type="checkbox" name="pregunta10" class="respuesta" data-correcto="falso" value="d" /> Requiere que el CPU esté completamente detenido</label><br />
+    <p>10. ¿Qué sucede cuando se revocan permisos en una ACL mientras el archivo ya está abierto?</p>
+    <label><input type="radio" name="pregunta10" class="respuesta" data-correcto="verdadero" value="a" /> El cambio solo afecta a las nuevas llamadas a open; los descriptores abiertos conservan sus derechos</label><br />
+    <label><input type="radio" name="pregunta10" class="respuesta" data-correcto="falso" value="b" /> Todos los procesos que lo tengan abierto pierden inmediatamente todos los permisos</label><br />
+    <label><input type="radio" name="pregunta10" class="respuesta" data-correcto="falso" value="c" /> El sistema cierra automáticamente el archivo en todos los procesos</label><br />
+    <label><input type="radio" name="pregunta10" class="respuesta" data-correcto="falso" value="d" /> Se bloquea el acceso hasta que se reinicie el sistema</label><br />
   </div>
 
 </form>
-
 
           <!-- Botón para validar respuestas -->
           <input type="button" value="Validar respuestas" id="btnValidar" />

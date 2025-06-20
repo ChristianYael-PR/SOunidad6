@@ -75,25 +75,33 @@
 
         <!-- ================ CONTENIDO DEL TEMA ================ -->
         <p>
-          Un controlador de dispositivo es un software cuya función es la de indicar al sistema operativo y otros Softwares el modo en el cual comunicarse con una pieza de hardware.
+          En los <b>sistemas operativos modernos</b>, la matriz completa de accesos resulta impracticable: su tamaño crece rápidamente y la mayor parte de sus celdas suelen estar vacías. Para resolverlo, se almacena la información por columnas, de manera que cada objeto (un archivo, un directorio o cualquier recurso) lleva consigo una lista ordenada de aquellos sujetos (usuarios o grupos) a los que se les concede algún tipo de permiso. A esta estructura se la denomina <b>Lista de Control de Acceso</b>, o ACL, y constituye la forma más extendida de encarnar la matriz de protección en un espacio compacto.
+        </p>
+<br>         
+        <p>
+          Cada entrada en la ACL asocia un identificador de sujeto (generalmente un par UID, y opcionalmente un GID) con un conjunto de privilegios: lectura, escritura, ejecución y otros más específicos según el tipo de objeto (por ejemplo, adjuntar mensajes en una bandeja de correo o destruir un objeto genérico). A diferencia de la lógica a nivel de proceso, los permisos se evalúan por propietario: basta con que un proceso pertenezca al usuario o grupo indicado para heredar los derechos allí definidos. Cuando un solicitante trata de <b>acceder al recurso</b>, el sistema recorre la ACL en busca de la primera coincidencia y aplica los privilegios listados; si no aparece ninguna, la petición se rechaza.
         </p>
 
         <div style="margin: 20px 0; text-align: center;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/RULRzrg3auY?si=3s5A6yOYiSWcPkd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-
-          <p>
-            Por ejemplo, los controladores de impresoras comunican al sistema operativo, así como también a cualquiera sea el programa en el cual se encuentre abierto el documento a imprimir, cómo imprimir la información de manera exacta.
-            La misma idea general se aplica a tarjetas gráficas, teclados, monitores, etc.
-          </p>
-
-        <div style="margin: 20px 0; text-align: center;">
-          <img src="../../assets/ejemploControlador.jpg" alt="Imagen 5.1.2" style="max-width:25%; border-radius:6px;" />
+          <img src="../../assets/6.1.2Acceso.png" alt="Imagen 6.1.2" style="max-width:60%; border-radius:12px;" />
           <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Fuente: <a href="https://sora.chatgpt.com/" target="_blank" style="color: #666; text-decoration: none;">OpenAI. (2025). Imagen generada con Sora [Imagen generada por IA]. https://sora.chatgpt.com/</a>
+             <a href="https://www.redeszone.net/tutoriales/seguridad/control-de-acceso-que-es/" target="_blank" style="color: #666; text-decoration: none;">Fernández, L. (2025, Enero 12). Qué es el control de acceso y cómo ayuda a proteger nuestros datos. https://www.redeszone.net/tutoriales/seguridad/control-de-acceso-que-es/</a>
           </p>
-          
         </div>
+
+        <p>
+          El uso de grupos introduce un nivel de abstracción similar al de los roles. Un usuario puede pertenecer simultáneamente a varios grupos, y las ACL pueden contener entradas tanto de usuarios individuales como de identificadores de grupo. En algunos esquemas se exige que el proceso especifique el grupo activo al iniciar sesión, mientras que en otros basta con que pertenezca a cualquiera de ellos para que se apliquen los permisos correspondientes. Para casos especiales, se recurre al comodín “*”, que puede otorgar derechos universales o bien bloquear de forma selectiva a un sujeto concreto si aparece en la primera posición de la lista.
+        </p>
+<br>         
+        <p>
+          La <b>flexibilidad de las ACL</b> facilita también la revocación de permisos: basta con editar la lista y cambiar o eliminar la entrada correspondiente. No obstante, hay una sutileza operativa importante: los cambios solo afectan a las nuevas llamadas de apertura de archivo. Si un descriptor ya está abierto, sus privilegios persisten hasta que se cierre, de modo que un usuario podría seguir trabajando con un recurso aun cuando su acceso haya sido revocado posteriormente. Este detalle, junto con el orden de las entradas y la potencial complejidad de las listas, sobre todo en entornos con muchos grupos y permisos específicos, revela que, a pesar de su eficiencia espacial, las ACL requieren un diseño cuidadoso y unas políticas claras para evitar comportamientos inesperados.
+        </p>
+
+        <div style="margin: 20px 0; text-align: left;">
+        <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación.
+        </p>
+        </div>  
 
     <!-- ===================== BOTONES ===================== -->    
           <div style="margin-top: 20px; display: flex; justify-content: space-between;">

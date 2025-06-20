@@ -74,39 +74,69 @@
         <h1 class="page-title">6.1 El ambiente de seguridad</h1>
 
         <!-- ================ CONTENIDO DEL TEMA ================ -->
+
+        <h2 class="subtitulo">Conceptos clave:</h2>
+
         <p>
-          El control de los dispositivos conectados a una computadora es una preocupación clave para los diseñadores de sistemas operativos. Debido a la gran variedad de funciones y velocidades de los dispositivos de E/S (como un ratón, un disco duro o un robot de cinta), se necesitan métodos diferentes para controlarlos. Estos métodos conforman el subsistema de E/S del núcleo (kernel), que aísla al resto del sistema operativo de la complejidad del manejo de dispositivos.
+  <ul>
+    <li><b>Seguridad:</b> Problema general que abarca todos los aspectos (técnicos, administrativos, legales, políticos) necesarios para evitar que personas no autorizadas lean, modifiquen o destruyan datos.</li>
+    <li><b>Mecanismos de protección:</b> Conjunto de técnicas y herramientas específicas del sistema operativo (como son las listas de control de acceso, autenticación, cifrado, aislamiento de procesos) que implementan la seguridad.</li>
+  </ul>
         </p>
 
         <div style="margin: 20px 0; text-align: center;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/I2RMjXW8Hu8?si=nhdTKPpFVQzbGuoJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/M-yf_aHTqkc"
+            title="Video 5.2"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            <a href="https://www.youtube.com/watch?v=M-yf_aHTqkc" target="_blank" style="color: #666; text-decoration: none;">Gonzalez, A. (2020, Junio 07). Sistemas Operativos 9/9 - Seguridad de los Sistemas Operativos. [Video] YouTube. https://www.youtube.com/watch?v=M-yf_aHTqkc</a>
+        </p>
         </div>
 
-        <h2 class="subtitulo">Problemática del mercado de Hardware de Entrada y Salida</h2>
          <p>
-          Existen dos tendencias opuestas en la tecnología de E/S:
+          Claramente son conceptos muy distintos, cumpliendo con funciones específicas y en donde no siempre existe un límite claro.
         </p>
-        <table>
-          <thead>
-            <tr>
-              <th>Tendencia</th>
-              <th>Descripción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1.	Estandarización creciente</td>
-              <td>Estandarización creciente de interfaces de hardware y software, lo que facilita integrar nuevas generaciones de dispositivos.</td>
-            </tr>
-            <tr>
-              <td>2.	Aumento en la diversidad</td>
-              <td>Aumento en la diversidad de dispositivos, algunos tan distintos que su integración es compleja.</td>
-            </tr>
-          </tbody>
-        </table>
+        
+        <p>Utilizaremos el término <b>seguridad</b> para hacer referencia al problema general, y <b>mecanismos de protección</b> para referirnos a los mecanismos específicos del sistema operativo. Se hablará sobre la seguridad para ver cuál es la naturaleza del problema, más adelante analizaremos los mecanismos de protección y los modelos disponibles para ayudar a obtener seguridad, estableciendo soluciones.</p>
 
-        <p> Para enfrentar este reto, se combinan técnicas de hardware (como puertos, buses y controladores) y software. El sistema operativo utiliza controladores de dispositivos (device drivers), que encapsulan los detalles específicos de cada dispositivo y ofrecen una interfaz uniforme de acceso, al igual que las llamadas al sistema lo hacen entre aplicaciones y el sistema operativo.</p>
+        <h2 class="subtitulo">Principales facetas de la seguridad:</h2>
+
+  <button class="accordion">Amenazas</button>
+        <div class="panel">
+          <ul>
+            <h2 class="subtitulo">Amenazas</h2>
+              <p>Dentro de este marco general, las amenazas se presentan como cualquier circunstancia que pueda comprometer la información. Pueden manifestarse sin modificar directamente los datos, por ejemplo, cuando se interceptan comunicaciones, o bien mediante acciones activas que alteran o eliminan información valiosa. Tanto usuarios internos, con permisos legítimos, como agentes externos pueden aprovechar vulnerabilidades en la red, en las aplicaciones o en dispositivos de almacenamiento extraíble para lograr sus objetivos, que pueden ir desde el espionaje y el sabotaje hasta la obtención de ventajas económicas o políticas.</p>
+          </ul>
+        </div>
+
+  <button class="accordion">Intrusiones</button>
+        <div class="panel">
+          <ul>
+            <h2 class="subtitulo">Intrusiones</h2>
+              <p>Quienes llevan a cabo estas intrusiones, llamados intrusos, adoptan perfiles muy diversos según sus motivaciones. Hay quienes impulsados por la curiosidad técnica exploran sistemas sin intenciones claramente maliciosas, mientras que organizaciones criminales se enfocan en el lucro a través del robo de identidad o fraude. Los hackers actúan movidos por causas ideológicas o políticas, y en ocasiones incluso gobiernos emplean técnicas de espionaje cibernético. Para acceder al sistema, estos actores combinan métodos como la ingeniería social, la explotación de vulnerabilidades en el software o ataques de fuerza bruta, y pueden llegar a comprometer tanto el nivel de usuario como el núcleo del sistema mediante rootkits y modificaciones de controladores.</p>
+          </ul>
+        </div>
+        
+  <button class="accordion">Pérdida de datos</button>
+        <div class="panel">
+          <ul>
+            <h2 class="subtitulo">Pérdida de datos</h2>
+              <p>No obstante, no todo peligro proviene de la malicia; la pérdida accidental de datos representa otra cara de la inseguridad. Los errores humanos al borrar archivos o configurar sistemas, las fallas de hardware en discos o memorias, los errores de software y los desastres naturales pueden ocasionar daños irreversibles o interrupciones prolongadas. Frente a esto, las organizaciones suelen implementar copias de seguridad periódicas (tanto locales como remotas), emplear sistemas de almacenamiento redundante, utilizar sistemas de archivos con registro de transacciones que facilitan la recuperación tras cortes de energía, y diseñar planes de recuperación ante desastres que permitan restablecer las operaciones con la mayor rapidez posible.</p>
+          </ul>
+        </div>
+
+        <p>Este enfoque de primero entender <b>amenazas</b>, luego <b>intrusos</b> y <b>pérdidas accidentales</b>, y finalmente estudiar las soluciones nos permitirá tener una visión del ambiente de seguridad antes de meternos en la implementación de mecanismos específicos.</p>
     
+        <div style="margin: 20px 0; text-align: left;">
+        <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación.
+        </p>
+        </div>
+        
         <!-- ===================== BOTONES ===================== -->   
           <div style="margin-top: 20px; display: flex; justify-content: space-between;">
             <a href="../index.html">

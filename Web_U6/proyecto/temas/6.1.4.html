@@ -74,59 +74,30 @@
         <h1 class="page-title">6.1.4 Modelos formales de seguridad</h1>
 
         <!-- ================ CONTENIDO DEL TEMA ================ -->
-        <p>
-          El DMA (Direct Memory Access) permite transferencias de datos entre dispositivos (como discos) y memoria sin involucrar directamente al CPU, lo que mejora el rendimiento del sistema frente al método tradicional PIO (Programmed I/O), donde el CPU gestiona manualmente cada byte transferido.
-        </p>
-
         <div style="margin: 20px 0; text-align: center;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/YiDwDRFAqcw?si=I42_epmDPMJgBmez" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <img src="../../assets/6.1.4Estados.png" alt="Imagen 6.1.4" style="max-width:70%; border-radius:12px;" />
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+             Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos: 9.3.6 Modelos formales de los sistemas seguros. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación. pp. 632-634
+          </p>
         </div>
 
-        <h2 class="subtitulo">Funcionamiento del DMA:</h2>
+        <p>
+          Los modelos formales de seguridad parten de la idea de que la matriz de protección—esa tabla que asocia dominios (usuarios o roles) con permisos sobre objetos—es en realidad una estructura dinámica, sometida constantemente a la creación y destrucción de objetos y dominios, así como a la concesión o revocación de derechos. Harrison y sus colaboradores identificaron en 1976 un conjunto de seis operaciones primitivas sobre esta matriz—crear y borrar objetos, crear y borrar dominios, y añadir o quitar permisos—que sirven de cimiento para cualquier sistema de protección. En la práctica, esas operaciones no se invocan de manera directa, sino que se agrupan en comandos de más alto nivel (por ejemplo, “crear archivo” o “conceder permiso de lectura a todos los usuarios”), que realizan comprobaciones previas y actualizan la matriz de forma controlada.</b>.
+        </p>
+<br>         
+        <p>
+          Es importante distinguir entre lo que la matriz hace cumplir (el mecanismo) y la política deseada (la directiva de autorización). Un sistema puede permitir, por ejemplo, que Henry acceda a cierto buzón de correo y que Robert modifique un documento secreto, y esa sería la directiva autorizada. Sin embargo, si un intruso lograra invocar comandos que alteren la matriz más allá de lo previsto, podría alcanzar un estado en el que adquiera permisos indebidos sin que el sistema lo detecte, exactamente como en el ejemplo de la figura 9-12(b), donde Robert gana acceso a un recurso que no le corresponde.
+        </p>
+<br>  
+        <p>
+          Esa observación da pie al conocido <b>problema de seguridad</b> o de “safety”: partiendo de un estado inicial autorizado y de un conjunto de comandos de protección, ¿se puede garantizar que nunca se llegará a un estado no autorizado? Lamentablemente, Harrison et al. demostraron que, en el caso más general, este problema es indecidible: no existe un algoritmo que, dado cualquier sistema de protección arbitrario, asegure por adelantado que la seguridad no podrá violarse. No obstante, cuando el conjunto de operaciones y la estructura de dominios y objetos están acotados y bien definidos, sí es posible analizar exhaustivamente todas las transiciones y probar que el sistema es seguro en la práctica. Para profundizar en estas demostraciones y sus matices, conviene revisar trabajos posteriores como los de Landwehr (1981), que exploran condiciones bajo las cuales la seguridad puede certificarse de forma efectiva.
+        </p>
 
-        <button class="accordion">1. Inicio del DMA:</button>
-          <div class="panel">
-            <ul>
-              <li>El CPU escribe un bloque de comandos DMA en memoria con:
-                <ul>
-                  <li>Dirección de origen y destino.</li>
-                  <li>Cantidad de bytes a transferir.</li>
-                </ul>
-              </li>
-              <li>Este bloque puede incluir direcciones no contiguas (scatter–gather).</li>
-              <li>Luego, el CPU informa al controlador DMA y continúa con otras tareas.</li>
-            </ul>
-          </div>
-
-          <button class="accordion">2. Transferencia:</button>
-          <div class="panel">
-            <ul>
-              <li>El controlador DMA toma el control del bus de memoria y realiza las transferencias.</li>
-              <li>Usa cables especiales (DMA-request y DMA-acknowledge) para coordinarse con el controlador del dispositivo.</li>
-              <li>Una vez finalizada la transferencia, el DMA interrumpe al CPU para notificar la finalización.</li>
-            </ul>
-          </div>
-          <button class="accordion">3.	Impacto en el CPU:</button>
-          <div class="panel">
-            <ul>
-              <li>Durante la transferencia, el CPU puede ser momentáneamente bloqueado del acceso a la RAM (cycle stealing), pero puede seguir usando su caché.</li>
-            </ul>
-          </div>
-          <button class="accordion">4.	Dirección de la memoria:</button>
-          <div class="panel">
-            <ul>
-              <li>Generalmente, la transferencia se hace en espacio de memoria del kernel.</li>
-              <li>Si se requiere acceder desde espacio de usuario, se necesita una copia adicional, lo que es ineficiente.</li>
-              <li>Para evitarlo, los sistemas modernos usan mapeo de memoria para permitir transferencias directas hacia/desde el espacio de usuario.</li>
-            </ul>
-          </div>
-          <button class="accordion">5.	Acceso y seguridad:</button>
-          <div class="panel">
-            <ul>
-              <li>En sistemas con protección de memoria, solo el sistema operativo puede emitir comandos a los dispositivos.</li>
-              <li>En sistemas sin protección, los procesos pueden acceder directamente a los controladores, lo que mejora el rendimiento, pero compromete la seguridad y estabilidad.</li>
-            </ul>
-          </div>
+        <div style="margin: 20px 0; text-align: left;">
+        <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación.
+        </p>
+        </div>  
 
     <!-- ===================== BOTONES ===================== -->    
        <!-- ACTIVIDAD --> 

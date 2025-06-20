@@ -75,78 +75,33 @@
 
         <!-- ================ CONTENIDO DEL TEMA ================ -->
         <p>
-          El mecanismo de interrupciones permite que el CPU responda a eventos asíncronos, como cuando un dispositivo necesita atención. El CPU detecta una señal en la línea de petición de interrupción, guarda su estado, salta a una rutina especial llamada manejador de interrupciones, atiende el evento y luego retoma la ejecución previa.
+          Cuando intentamos hacer práctica la matriz de protección enseguida nos topamos con dos problemas fundamentales: la inmensa mayoría de las celdas estarán vacías y el tamaño crece con cada usuario y cada recurso nuevo. Para aprovechar la dispersión de la matriz (“sparseness”) y no malgastar espacio ni tiempo de búsqueda, se han ideado dos estrategias opuestas pero complementarias: una almacena la matriz por columnas (las ACL, que ya vimos en 6.1.2) y la otra por filas, lo que da lugar a las llamadas <b>listas de capacidades</b>.
+        </p>
+<br>         
+        <p>
+          En la aproximación por filas, al dominio o propietario (un usuario, un grupo o un rol) se le asocia una <b>lista de capacidades</b>: cada entrada identifica un objeto junto con el conjunto de permisos concedidos (lectura, escritura, ejecución, etc.). Esa “capacidad” suele representarse como un token inalterable o un descriptor cerrado por el sistema, de modo que ningún proceso pueda fabricar o modificar su propia lista. Cuando un programa quiere acceder a un recurso, “presenta” la capacidad correspondiente en vez de que el sistema tenga que recorrer una ACL. Esto convierte la comprobación en una simple verificación de validez del descriptor, lo que resulta muy rápido y localiza el coste de la operación en el dominio del solicitante.
+        </p>
+<br>  
+        <p>
+          Sin embargo, las listas de capacidades plantean su propio desafío: la <b>revocación</b>. Si quiero retirar derechos de un usuario concreto, ¿cómo invalido la capacidad que ya tiene en su poder? A diferencia de las ACL, donde basta con editar la lista asociada al objeto, aquí no existe un punto único de control. Para atajar esto, se recurren a mecanismos adicionales, como llevar un registro centralizado de todas las capacidades emitidas para cada objeto (y comprobar en cada acceso si no ha sido revocada), o implementar “martes de revocación” periódicos que comparan listas y cancelan tokens obsoletos.
+        </p>
+<br>         
+        <p>
+          En la práctica, muchos sistemas operativos y lenguajes de ejecución combinan ambas ideas: usan ACL para recursos de gran nivel (sistemas de archivos, dispositivos) y listas de capacidades para objetos más dinámicos (canales de comunicación, entradas de servicio). De este modo logran un equilibrio entre la <b>granularidad y la facilidad de revocación</b> de las ACL y la <b>velocidad y descentralización</b> de las capacidades. Cualquiera que sea el método elegido, comprender que la matriz completa es solo un modelo conceptual y que su implementación exige transformar filas o columnas en estructuras manejables es la clave para diseñar sistemas de protección escalables y eficientes.
         </p>
 
         <div style="margin: 20px 0; text-align: center;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/vusZZtiVBqs?si=8mZOfXPo5RSg0Oq3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        
-        <h2 class="subtitulo">Tipos de Interrupciones</h2>
-
-        <button class="accordion">Las interrupciones pueden clasificarse en:</button>
-        <div class="panel">
-          <p>
-             </p>
-           <table>
-          <thead>
-            <tr>
-              <th>Tipo</th>
-              <th>Descripción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>No enmascarables</td>
-              <td>para errores críticos como fallos de memoria.</td>
-            </tr>
-            <tr>
-              <td>Enmascarables</td>
-              <td>pueden desactivarse temporalmente para evitar interrupciones durante operaciones críticas.</td>
-            </tr>
-          </tbody>
-        </table>
+          <img src="../../assets/6.1.3Lista.png" alt="Imagen 6.1.3" style="max-width:60%; border-radius:12px;" />
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+             Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos: 9.3.2  Listas de control de acceso. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación. pp. 624-627
+          </p>
         </div>
 
-        <h2 class="subtitulo">Interrupciones vectoreadas</h2>
-        <p>
-                    se usa una tabla (vector de interrupciones) con direcciones de manejadores específicos, evitando tener que revisar todos los dispositivos.	Si hay más dispositivos que entradas en el vector, se usa encadenamiento de interrupciones, donde cada entrada enlaza a varios manejadores.
-                  </p> 
-        <h2 class="subtitulo">Priorización</h2>
-        <p>
-                  el sistema puede clasificar interrupciones por niveles de prioridad para que las más importantes se atiendan primero.
-                  </p>
-
-        <h2 class="subtitulo">Trampas (software interrupts)</h2>
-        <p>
-        se usan para eventos como fallos de página o errores como división por cero. También son utilizadas por llamadas al sistema hechas por programas.
+        <div style="margin: 20px 0; text-align: left;">
+        <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación.
         </p>
-         <h2 class="subtitulo">Ejecución y manejo</h2>
-
-        <button class="accordion">El sistema utiliza estos métodos para el manejo de las interrupciones:</button>
-        <div class="panel">
-          <p>
-             </p>
-           <table>
-          <tbody>
-            <tr>
-              <td>Manejadores de interrupciones en dos niveles</td>
-              <td>
-                <p>- FLIH (First-Level Interrupt Handler): realiza el cambio de contexto y registra la interrupción.</p>
-                <p>- SLIH (Second-Level Interrupt Handler): se encarga del trabajo completo, como copiar datos o finalizar una operación.</p>
-              </td>
-            </tr>
-            <tr>
-              <td>Aplicaciones del mecanismo de interrupciones</td>
-              <td><p>- Manejo de errores, memoria virtual (fallos de página), llamadas al sistema y control de flujos en el kernel.</p>
-              <p>- En operaciones como la lectura de disco, se usan varios niveles de interrupciones para balancear urgencia y eficiencia.</p></td>
-            </tr>
-            <tr>
-              <td>Ejemplo: Solaris</td>
-              <td><p>usa hilos del núcleo para manejar interrupciones con diferentes prioridades, permitiendo ejecución concurrente en sistemas multiprocesador y priorizando tareas críticas.</p></td>
-          </tbody>
-        </table>
-        </div>
+        </div>  
 
    <!-- ===================== BOTONES ===================== -->    
           <div style="margin-top: 20px; display: flex; justify-content: space-between;">
