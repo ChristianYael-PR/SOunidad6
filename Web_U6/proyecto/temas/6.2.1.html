@@ -74,88 +74,70 @@
         <h1 class="page-title">6.2.1 Emulación</h1>
 
         <!-- ================ CONTENIDO DEL TEMA ================ -->
-<h2 class="subtitulo">Independencia de Dispositivos</h2>
+
+        <h2 class="subtitulo">¿Qué es la emulación?</h2>
         <p>
-          El objetivo principal del software de E/S es lograr la independencia de dispositivos, es decir, permitir que los programas puedan acceder a distintos dispositivos (discos duros, CD-ROM, USB, etc.) sin necesidad de que sean modificados para cada tipo de hardware, por ejemplo, un programa que lee un archivo debe funcionar igual si el archivo está en un disco duro o en una memoria USB.
+          En el contexto de los sistemas operativos y la informática, la <b>emulación</b> es una técnica que permite que un sistema (hardware o software) imite el funcionamiento de otro sistema diferente. Un emulador reproduce el comportamiento de una arquitectura, dispositivo o entorno, permitiendo ejecutar programas o utilizar periféricos que originalmente no fueron diseñados para el sistema anfitrión.
         </p>
 
-        <div style="margin: 20x 0; text-align: center;">
-          <img src="../../assets/5.2.1_Almacenamiento.png" alt="Imagen Tema 1" style="max-width:50%; border-radius:6px;" />
-        
- 
+        <h2 class="subtitulo">Propósito y aplicaciones de la emulación</h2>
+        <ul>
+          <li>
+            <b>Compatibilidad de software:</b> Permite ejecutar aplicaciones diseñadas para plataformas antiguas o diferentes (por ejemplo, juegos de consolas clásicas en una PC moderna, o programas de Windows en sistemas Linux usando Wine).
+          </li>
+          <li>
+            <b>Desarrollo y pruebas:</b> Los desarrolladores pueden probar software en diferentes arquitecturas sin necesidad de hardware físico específico, como emuladores de dispositivos móviles o sistemas embebidos.
+          </li>
+          <li>
+            <b>Preservación digital:</b> Facilita la conservación y acceso a software y sistemas operativos obsoletos, útiles en investigación, educación y museos.
+          </li>
+        </ul>
+
+        <h2 class="subtitulo">¿Cómo funciona la emulación?</h2>
+        <p>
+          Un emulador traduce las instrucciones y operaciones del sistema original a instrucciones que el sistema anfitrión puede entender y ejecutar. Esto puede implicar la emulación de procesadores, memoria, dispositivos de entrada/salida y otros componentes. A diferencia de la virtualización, la emulación no requiere que el hardware anfitrión sea similar al hardware emulado, aunque esto suele implicar una mayor sobrecarga y menor rendimiento.
+        </p>
+
+        <div style="margin: 20px 0; text-align: center;">
+          <img src="../../assets/6.2.1Emulacion.jpeg" alt="Ejemplo de emulación" style="max-width:50%; border-radius:6px;" />
           <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Fuente: <a href="https://laotraescucha.com/memorias-usb-y-discos-duros-test-y-resultados-de-profeco/" target="_blank" style="color: #666; text-decoration: none;">Anónimo (2022, Mayo 03). Memorias USB y discos duros; test y resultados de Profeco. La Otra Escucha. Recuperado: Junio 6, 2025, de https://laotraescucha.com/memorias-usb-y-discos-duros-test-y-resultados-de-profeco/</a>
+            Ejemplo: Emulación de una consola de videojuegos en una PC moderna.
           </p>
         </div>
-<h2 class="subtitulo">Denominación Uniforme</h2>
-        <p>
-          También se busca una denominación uniforme, en donde todos los archivos y dispositivos deben identificarse mediante nombres simples (cadenas o enteros), sin necesidad de saber qué tipo de dispositivo hay detrás. En sistemas como UNIX, todos los dispositivos se integran como en una jerarquía de archivos, de modo que, una memoria USB puede montarse en un directorio como /usr/ast/respaldo, y los archivos escritos allí se almacenan en ese dispositivo, sin que el usuario tenga que preocuparse por ello.
-        </p>
-<br>
-<h2 class="subtitulo">Manejo de Errores</h2>
-        <p>
-          Otro aspecto esencial es el manejo de errores, los errores deben tratarse en los niveles más cercanos al hardware, ya que, si un controlador detecta un error de lectura, debe intentar corregirlo automáticamente. Muchos de los errores son temporales y se solucionan repitiendo la operación. Solo si los niveles más bajos no pueden resolver el problema, este debe ser notificado a los niveles superiores.
-        </p>
 
-        <div style="margin: 20x 0; text-align: center;">
-          <img src="../../assets/5.2.1_hardware.png" alt="Imagen Tema 1" style="max-width:30%; border-radius:6px;" />
-        
+        <h2 class="subtitulo">Diferencias entre emulación y virtualización</h2>
+        <ul>
+          <li>
+            <b>Emulación:</b> Reproduce completamente el hardware y permite ejecutar software de plataformas distintas, aunque con menor eficiencia.
+          </li>
+          <li>
+            <b>Virtualización:</b> Permite ejecutar varios sistemas operativos sobre el mismo hardware físico, pero requiere que el hardware virtualizado sea similar al real, logrando mayor rendimiento.
+          </li>
+        </ul>
 
-          <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Fuente: <a href="https://madicona.blogspot.com/2013/02/tipos-de-errores-comunes-en-una-pc.html" target="_blank" style="color: #666; text-decoration: none;">Irala Hernández, E. (2013, Febrero 21). MANEJO Y OPERACIÓN DE EQUIPOS DE COMPUTO. Madicona. Recuperado: Junio 6, 2025, de https://madicona.blogspot.com/2013/02/tipos-de-errores-comunes-en-una-pc.html/</a>
-          </p>
-        </div>
-<h2 class="subtitulo">Uso de Búferes</h2>
-        <p>
-          El uso de búferes también es crucial, ya que muchas veces los datos no pueden ir directamente del dispositivo a su destino final, así que se almacenan temporalmente en búferes, por ejemplo, tenemos los paquetes de red primero se almacenan y examinan antes de saber a dónde enviarlos. En dispositivos con restricciones de tiempo, como los de audio digital, los búferes ayudan a mantener un flujo constante de datos y evitan problemas como sub-desbordamientos, sin embargo, el uso de búferes implica copiado de datos y puede afectar el rendimiento.
-        </p>
-<br>
-<h2 class="subtitulo">Transferencias Síncronas y Asíncronas</h2>
-        <p>
-         Las transferencias síncronas y asíncronas son otro tema importante, aunque la mayoría de las operaciones de E/S son asíncronas (la CPU inicia la operación y continúa con otra tarea hasta recibir una interrupción), los programas de usuario suelen trabajar con operaciones de bloqueo (síncronas), donde el programa se suspende hasta que los datos están disponibles. El sistema operativo se encarga de simular este comportamiento para simplificar el desarrollo de programas.
-        </p>
-
-<h3 class="subtitulo">Transferencia Asíncrona</h3>        
-
-        <div style="margin: 20x 0; text-align: center;">
-          <img src="../../assets/5.2.1_asincro.png" alt="Imagen Tema 1" style="max-width:30%; border-radius:6px;" />
-        
-
-          <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Fuente: <a href="https://pc-solucion.es/transmision-sincrona-y-asincrona/" target="_blank" style="color: #666; text-decoration: none;"> Transmisión Síncrona y Asíncrona. (s. f.). PC Solución. Recuperado: Junio 6, 2025, de https://pc-solucion.es/transmision-sincrona-y-asincrona/</a>
-          </p>
-        </div>
-<h3 class="subtitulo">Transferencia Síncrona</h3>
-
-        <div style="margin: 20x 0; text-align: center;">
-          <img src="../../assets/5.2.1_sincro.png" alt="Imagen Tema 1" style="max-width:30%; border-radius:6px;" />
-        
-
-          <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Fuente: <a href="https://pc-solucion.es/transmision-sincrona-y-asincrona/" target="_blank" style="color: #666; text-decoration: none;"> Transmisión Síncrona y Asíncrona. (s. f.). PC Solución. Recuperado: Junio 6, 2025, de https://pc-solucion.es/transmision-sincrona-y-asincrona/</a>
-          </p>
-        </div>
-<h2 class="subtitulo">Dispositivos Compartidos y Dedicados</h2>
-
-        <p>
-         Finalmente, se distingue entre dispositivos compartidos (como discos, que pueden ser usados por varios usuarios a la vez) y dispositivos dedicados (como unidades de cinta, que deben ser usados por un solo usuario a la vez). El sistema operativo debe gestionar ambos tipos correctamente, evitando conflictos como los interbloqueos cuando múltiples usuarios compiten por un recurso exclusivo.
-        </p>
+        <h2 class="subtitulo">Ejemplos de emulación en sistemas operativos</h2>
+        <ul>
+          <li>Emuladores de CPU (QEMU, Bochs).</li>
+          <li>Emuladores de consolas (SNES9x, PCSX2).</li>
+          <li>Wine para ejecutar aplicaciones de Windows en Linux.</li>
+          <li>Emulación de terminales antiguos en sistemas modernos.</li>
+        </ul>
 
         <div style="margin: 20px 0; text-align: left;">
-        <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos: 5.2.1 Objetivos del software de E/S. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación. pp. 343-344
-        </p>
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos. Pearson Educación.<br>
+            Stallings, W. (2018). Sistemas operativos: Conceptos y diseño. Pearson.
+          </p>
         </div>
 
-    <!-- ===================== BOTONES ===================== -->  
-          <div style="margin-top: 20px; display: flex; justify-content: space-between;">
-            <a href="6.2.html">
-              <button>&laquo; Tema Anterior</button>
-            </a>
-            <a href="6.2.2.html">
-              <button>Próximo Tema &raquo;</button>
-            </a>
-          </div>
+        <!-- ===================== BOTONES ===================== -->  
+        <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+          <a href="6.2.html">
+            <button>&laquo; Tema Anterior</button>
+          </a>
+          <a href="6.2.2.html">
+            <button>Próximo Tema &raquo;</button>
+          </a>
         </div>
       </main>
     </div>

@@ -74,49 +74,61 @@
         <h1 class="page-title">6.2.4 Contenedores</h1>
 
         <!-- ================ CONTENIDO DEL TEMA ================ -->
+
+        <h2 class="subtitulo">¿Qué son los contenedores?</h2>
         <p>
- Una limitación de la E/S controlada por interrupciones es que genera una interrupción por cada carácter, lo cual consume tiempo de CPU. Para ello, se puede optimizar este proceso se utiliza DMA (Acceso Directo a Memoria), donde un controlador de DMA se encarga de transferir los datos directamente entre la memoria y el dispositivo de E/S, sin involucrar a la CPU en cada paso. La CPU solo interviene al inicio para configurar la transferencia y al final para recibir una interrupción que indica que todo el búfer se ha procesado. Esto reduce drásticamente el número de interrupciones, pasando de una por carácter a una por cada bloque o búfer completo. Esto representa una mejora considerable, especialmente cuando se manejan grandes cantidades de datos o cuando las interrupciones son costosas.
-        </p>
-<br>
-        <p>
- Sin embargo, el DMA no es perfecto: el controlador de DMA suele ser más lento que la CPU. Si no puede manejar el dispositivo a su máxima velocidad, o si la CPU no tiene otra tarea útil durante la espera, puede ser más eficiente usar E/S por interrupciones o incluso E/S programada.
-        </p>
-<br>
-        <p>
- A pesar de esto, en la mayoría de los casos, DMA es preferible, ya que libera a la CPU para realizar otras tareas mientras se realiza la E/S. El concepto básico es similar a la E/S programada, pero el trabajo lo hace el controlador de DMA en lugar de la CPU, lo cual requiere hardware adicional.
+          Los <b>contenedores</b> son una tecnología de virtualización a nivel de sistema operativo que permite ejecutar aplicaciones y sus dependencias de manera aislada, ligera y eficiente dentro de un mismo sistema operativo anfitrión. A diferencia de las máquinas virtuales tradicionales, los contenedores no requieren un sistema operativo completo por cada instancia, sino que comparten el núcleo del sistema anfitrión, lo que reduce el consumo de recursos y mejora la velocidad de despliegue.
         </p>
 
-        <div style="margin: 20px 0; text-align: left;">
-        <p style="font-size: 12px; color: #666; margin-top: 5px;">
-Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos: 5.2.4  E/S mediante el uso de DMA. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación. p. 347
-        </p>
+        <h2 class="subtitulo">¿Cómo funcionan los contenedores?</h2>
+        <ul>
+          <li>Utilizan características del sistema operativo como <b>namespaces</b> y <b>cgroups</b> para aislar procesos, recursos y redes.</li>
+          <li>Cada contenedor incluye la aplicación y todas sus dependencias, pero comparte el núcleo del sistema operativo con otros contenedores.</li>
+          <li>El aislamiento permite ejecutar múltiples contenedores de manera segura y eficiente en el mismo host.</li>
+        </ul>
+
+        <div style="margin: 20px 0; text-align: center;">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/iIIEPrCHaI4?si=GbcHVfp2ywLkoNmx" title="YouTube video player" 
+          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
-<br>
-        <div style="margin: 20x 0; text-align: center;">
-          <img src="../../assets/5.2.4_dma.png" alt="Imagen Tema 1" style="max-width:55%; border-radius:6px;" />
-      
+        <h2 class="subtitulo">Ventajas de los contenedores</h2>
+        <ul>
+          <li><b>Eficiencia:</b> Consumen menos recursos que las máquinas virtuales, ya que no requieren un sistema operativo completo por contenedor.</li>
+          <li><b>Portabilidad:</b> Permiten empaquetar aplicaciones y sus dependencias, facilitando su despliegue en diferentes entornos.</li>
+          <li><b>Escalabilidad:</b> Facilitan la creación, destrucción y replicación rápida de instancias para responder a la demanda.</li>
+          <li><b>Aislamiento:</b> Separan aplicaciones y servicios, mejorando la seguridad y evitando conflictos de dependencias.</li>
+        </ul>
+
+        <h2 class="subtitulo">Ejemplos y usos comunes</h2>
+        <ul>
+          <li><b>Docker:</b> Plataforma líder para la gestión y despliegue de contenedores.</li>
+          <li><b>Kubernetes:</b> Orquestador de contenedores para administrar clústeres y aplicaciones distribuidas.</li>
+          <li>Desarrollo, pruebas y despliegue continuo de aplicaciones en la nube y entornos híbridos.</li>
+        </ul>
+
+        <div style="margin: 20px 0; text-align: left;">
           <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Fuente: <a href="https://open4tech.com/direct-memory-access-dma-in-embedded-systems/" target="_blank" style="color: #666; text-decoration: none;"> E/S POR INTERRUPCIONES. (s.f.). Open4Tech Recuperado: Junio 6, 2025, de https://open4tech.com/direct-memory-access-dma-in-embedded-systems/</a>
+            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos. Pearson Educación.<br>
+            Stallings, W. (2018). Sistemas operativos: Conceptos y diseño. Pearson.<br>
+            Merkel, D. (2014). Docker: Lightweight Linux Containers for Consistent Development and Deployment. Linux Journal.
           </p>
         </div>
 
-    <!-- ===================== BOTONES ===================== -->    
-       <!-- ACTIVIDAD --> 
-         <div style="display: flex; justify-content: center; margin-top: 15px;">
+        <!-- ===================== BOTONES ===================== -->    
+        <div style="display: flex; justify-content: center; margin-top: 15px;">
           <a href="../actividades/actividad 6.2.html">
             <button>Actividad del tema 6.2</button>
           </a>
-          </div>
-
-          <div style="margin-top: 20px; display: flex; justify-content: space-between;">
-            <a href="6.2.3.html">
-              <button>&laquo; Tema Anterior</button>
-            </a>
-            <a href="../referencias.html">
-              <button>Referencias &raquo;</button>
-            </a>
-          </div>
+        </div>
+        <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+          <a href="6.2.3.html">
+            <button>&laquo; Tema Anterior</button>
+          </a>
+          <a href="../referencias.html">
+            <button>Referencias &raquo;</button>
+          </a>
         </div>
       </main>
     </div>

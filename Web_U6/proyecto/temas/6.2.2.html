@@ -73,101 +73,60 @@
       <main class="content-area">
         <h1 class="page-title">6.2.2 Virtualización asistida por hardware</h1>
 
-        <!-- ================ CONTENIDO DEL TEMA ================ -->
+       <!-- ================ CONTENIDO DEL TEMA ================ -->
+
+        <h2 class="subtitulo">¿Qué es la virtualización asistida por hardware?</h2>
         <p>
-         La E/S programada es la forma más simple de realizar operaciones de entrada/salida, donde la CPU realiza todo el trabajo directamente, sin encargar en mecanismos como interrupciones o DMA (acceso directo a memoria). En este modelo, la CPU interactúa de forma activa con el dispositivo, supervisando constantemente su estado y realizando la transferencia de datos. Para entenderlo mejor, se utiliza el ejemplo de un proceso que desea imprimir la cadena “ABCDEFGH”:
+          La <b>virtualización asistida por hardware</b> es una tecnología que permite que los sistemas operativos invitados se ejecuten de manera más eficiente y segura sobre una máquina física, gracias al soporte directo del hardware (principalmente el procesador). Los fabricantes de procesadores, como Intel (VT-x) y AMD (AMD-V), han incorporado extensiones especiales que facilitan la creación y gestión de máquinas virtuales, eliminando muchas de las limitaciones y sobrecargas de la virtualización tradicional basada solo en software.
         </p>
 
-        <div style="margin: 20x 0; text-align: center;">
-          <img src="../../assets/5.2.2_abcdefgh.png" alt="Imagen Tema 1" style="max-width:65%; border-radius:6px;" />
+        <h2 class="subtitulo">¿Por qué es necesaria?</h2>
+        <p>
+          Antes de la virtualización asistida por hardware, los hipervisores (VMM) debían recurrir a técnicas complejas como la traducción binaria o la paravirtualización para ejecutar sistemas operativos invitados, lo que implicaba una mayor sobrecarga y menor rendimiento. Con el soporte de hardware, el procesador puede gestionar directamente las transiciones entre el sistema anfitrión y los invitados, mejorando la eficiencia y la seguridad.
+        </p>
+
+        <h2 class="subtitulo">¿Cómo funciona?</h2>
+        <ul>
+          <li>El procesador proporciona nuevos modos de operación y conjuntos de instrucciones que permiten ejecutar sistemas operativos invitados en un entorno aislado.</li>
+          <li>El hipervisor puede delegar ciertas operaciones sensibles directamente al hardware, evitando la emulación o intervención constante del software.</li>
+          <li>Se mejora el aislamiento entre máquinas virtuales, reduciendo riesgos de seguridad y errores de interferencia.</li>
+        </ul>
+
+        <div style="margin: 20px 0; text-align: center;">
+          <img src="../../assets/6.2.2.jpg" alt="Virtualización asistida por hardware" style="max-width:55%; border-radius:6px;" />
           <p style="font-size: 12px; color: #666; margin-top: 5px;">
-Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos: 5.2.2 E/S programada. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación. pp. 345
+            Esquema: El hardware moderno soporta directamente la ejecución de sistemas operativos invitados.
           </p>
         </div>
 
-        <button class="accordion">1.	Preparación en espacio de usuario:</button>
-        <div class="panel">
-          <p>
-            <ul>
-  <li>El proceso coloca la cadena en un búfer dentro de su espacio de usuario.</li>
-  <li>Luego solicita acceso a la impresora a través de una llamada al sistema. Si la impresora está ocupada, el proceso puede recibir un error o quedar bloqueado hasta que esté disponible.</li>
-            </ul>
-          </p>
-        </div>
+        <h2 class="subtitulo">Ventajas principales</h2>
+        <ul>
+          <li><b>Mayor rendimiento:</b> Menor sobrecarga en la ejecución de sistemas invitados.</li>
+          <li><b>Mejor seguridad:</b> Aislamiento más robusto entre máquinas virtuales.</li>
+          <li><b>Compatibilidad:</b> Permite ejecutar sistemas operativos sin necesidad de modificarlos.</li>
+        </ul>
 
-        <button class="accordion">2.	Intervención del sistema operativo:</button>
-        <div class="panel">
-          <p>
-            <ul>
-  <li>Una vez concedido el acceso, el sistema operativo copia el búfer del espacio de usuario al espacio de kernel, ya que el kernel necesita acceso directo a los datos.</li>
-  <li>Se verifica si la impresora está lista. Si no lo está, el sistema espera.</li>
-            </ul>
-          </p>
-        </div>
-
-        <button class="accordion">3.	Transferencia de caracteres:</button>
-        <div class="panel">
-          <p>
-            <ul>
-  <li>Cuando la impresora está disponible, se copia el primer carácter al registro de datos del dispositivo. Esto activa la impresora.</li>
-  <li>La impresora puede no imprimir de inmediato, ya que algunas almacenan los datos en un búfer interno (por línea o página).</li>
-  <li>La CPU sondea continuamente el registro de estado de la impresora para saber si está lista para recibir otro carácter.</li>
-  <li>Cuando el estado indica que está lista, el siguiente carácter se transfiere, y así sucesivamente hasta que se imprime toda la cadena.</li>
-            </ul>
-          </p>
-        </div>
-
-        <button class="accordion">4.	Ciclo de impresión:</button>
-        <div class="panel">
-          <p>
-            <ul>
-  <li>Este proceso de sondeo continuo se repite hasta completar la operación.</li>
-  <li>Finalmente, el control se devuelve al proceso de usuario.</li>
-            </ul>
-          </p>
-        </div>
-
-<h2 class="subtitulo">Características clave</h2>
-  <ul>
-    <li>El aspecto esencial de la E/S programada es el uso del sondeo (polling) o espera activa, donde la CPU verifica constantemente el estado del dispositivo sin realizar otras tareas mientras tanto.</li>
-    <li>Esto implica que la CPU no puede ejecutar otras operaciones hasta que finalice completamente la operación de E/S.</li>
-  </ul>
-
-<h2 class="subtitulo">Ventajas y desventajas</h2>
-
-<h2 class="subtitulo">Ventajas:</h2>
-  <ul>
-    <li>Fácil de implementar.</li>
-    <li>Adecuada para sistemas embebidos o dedicados donde la CPU no tiene otras cargas de trabajo.</li>
-    <li>Pueden ser eficientes si el tiempo de E/S es muy breve (como al copiar datos a un búfer).</li>
-  </ul>
-
-<h2 class="subtitulo">Desventajas:</h2>
-  <ul>
-    <li>Poco eficiente en sistemas multitarea, ya que bloquea a la CPU durante toda la operación de E/S.</li>
-    <li>No permite que la CPU realice otras tareas mientras espera que el dispositivo esté disponible.</li>
-  </ul>
- 
- <br
-        <p>
-La E/S programada es adecuada para sistemas simples o de propósito único, pero no es práctica en entornos multitarea o de alto rendimiento. En esos casos, se requieren mecanismos más eficientes y prácticos como interrupciones o DMA, que se analizaran en secciones posteriores.
-        </p>
+        <h2 class="subtitulo">Ejemplos de uso</h2>
+        <ul>
+          <li>Hipervisores modernos como VMware, KVM, Hyper-V y VirtualBox aprovechan la virtualización asistida por hardware.</li>
+          <li>Permite ejecutar múltiples sistemas operativos (Windows, Linux, etc.) simultáneamente en servidores y estaciones de trabajo.</li>
+        </ul>
 
         <div style="margin: 20px 0; text-align: left;">
-        <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos: 5.2.2 E/S programada. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación. pp. 344-346
-        </p>
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos. Pearson Educación.<br>
+            Stallings, W. (2018). Sistemas operativos: Conceptos y diseño. Pearson.
+          </p>
         </div>
 
-    <!-- ===================== BOTONES ===================== -->  
-          <div style="margin-top: 20px; display: flex; justify-content: space-between;">
-            <a href="6.2.1.html">
-              <button>&laquo; Tema Anterior</button>
-            </a>
-            <a href="6.2.3.html">
-              <button>Próximo Tema &raquo;</button>
-            </a>
-          </div>
+        <!-- ===================== BOTONES ===================== -->  
+        <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+          <a href="6.2.1.html">
+            <button>&laquo; Tema Anterior</button>
+          </a>
+          <a href="6.2.3.html">
+            <button>Próximo Tema &raquo;</button>
+          </a>
         </div>
       </main>
     </div>

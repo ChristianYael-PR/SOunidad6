@@ -74,45 +74,29 @@
         <h1 class="page-title">6.2 Virtualización</h1>
 
         <!-- ================ CONTENIDO DEL TEMA ================ -->
+        
         <p>
-         Dejando de lado los principios del hardware de E/S, ahora tenemos que tomar en cuenta los principios del software de E/S, el cual abarca un conjunto de rutinas del sistema operativo que ayuda a gestionar la comunicación entre sistema y dispositivos (memoria y CPU). El principal propósito es abstraer la complejidad del hardware, facilitar el acceso a dispositivos y optimizar el rendimiento del sistema. Esto parte en la organización del software estableciendo capas, existiendo dos capas básicas pero importantes:
+          Muchas empresas operan múltiples servidores (correo, web, FTP, etc.) en diferentes máquinas físicas por motivos de confiabilidad, aunque no siempre la carga de trabajo lo requiere. Esta configuración puede ser costosa y difícil de administrar. La virtualización, una tecnología con más de 40 años de desarrollo, permite ejecutar varios servidores en máquinas virtuales (VMs) dentro de una sola computadora física, manteniendo el aislamiento entre ellas y reduciendo costos.
         </p>
-
-        <button class="accordion">Capas Inferiores</button>
-        <div class="panel">
-          <p>
-            Las capas inferiores manejan o interaccionan directamente con el hardware, se encargan de los controladores de dispositivos y gestionar interrupciones, ocultando peculiaridades del hardware para que las capas superiores no las detecten.
-          </p>
+        <div style="margin: 20px 0; text-align: center;">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/K1vPbQtOlSc?si=uoX3D374BcOobb7H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-
-        <button class="accordion">Capas Superiores</button>
-        <div class="panel">
-          <p>
-            Las capas superiores son las encargadas de ofrecer una interfaz sencilla y uniforme a los programas de usuario, ocultando los detalles del hardware. Estas capas se comunican con las capas inferiores para realizar las operaciones físicas, pero desde el punto de vista del usuario y del programador, solo se necesita trabajar con operaciones abstractas como leer, escribir o abrir un archivo.
-          </p>
-        </div>
-
         <p>
-          Analizaremos el tema a profundidad, iniciando por los principales objetivos del software de E/S y posteriormente las distintas maneras en las que se puede realizar la E/S desde el punto de vista del sistema operativo.
+          <h2>El uso de máquinas virtuales ofrece varias ventajas:</h2>
         </p>
+        <ul>
+          <li><strong>Aislamiento y tolerancia a fallos:</strong> Si una VM falla, las demás continúan funcionando sin verse afectadas.</li>
+          <li><strong>Reducción de costos:</strong> Menos hardware físico implica ahorro en electricidad, espacio y mantenimiento.</li>
+          <li><strong>Flexibilidad:</strong> Cada aplicación puede contar con su propio sistema operativo y configuración.</li>
+          <li><strong>Facilidad de migración:</strong> Migrar una VM completa es más sencillo que migrar procesos individuales.</li>
+          <li><strong>Compatibilidad con software heredado:</strong> Es posible ejecutar aplicaciones antiguas junto a modernas en el mismo hardware.</li>
+          <li><strong>Desarrollo de software:</strong> Permite probar aplicaciones en múltiples sistemas operativos sin requerir varias computadoras ni reinicios.</li>
+        </ul>
 
         <div style="margin: 20px 0; text-align: left;">
-        <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos: 5.2 Fundamentos del software de E/S. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación. p. 343
-        </p>
-        </div>
-
-        <div style="margin: 20px 0; text-align: center;">
-          <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/AQQJmdOy878"
-            title="Video 5.2"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Fuente: <a href="https://www.youtube.com/watch?v=AQQJmdOy878" target="_blank" style="color: #666; text-decoration: none;">Antunez, V. (2018, Octubre 25). Principio del software de entradas y salidas. YouTube. Recuperado: Junio 6, 2025, de https://www.youtube.com/watch?v=AQQJmdOy878</a>
-        </p>
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Tanenbaum, A. S. (2009). SISTEMAS DE MÚLTIPLES PROCESADORES. In Sistemas operativos modernos (3rd ed., p. 523). PEARSON EDUCACIÓN.
+          </p>
         </div>
 
     <!-- ===================== BOTONES ===================== -->  

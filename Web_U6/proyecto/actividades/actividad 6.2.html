@@ -78,180 +78,178 @@
           <strong>Tiempo restante:</strong> <span id="reloj">05:00</span>
         </div>
 
-<!-- ======== CUESTIONARIO: Principios del software de E/S ======== -->
+<!-- ======== CUESTIONARIO: Virtualización ======== -->
 <form id="form-actividad">
   <!-- Pregunta 1 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>1. ¿Cuál es el principal propósito del software de E/S?</p>
+    <p>1. ¿Qué es la virtualización en el contexto de sistemas operativos?</p>
     <label>
       <input type="radio" name="pregunta1" class="respuesta" data-correcto="verdadero" value="a" />
-      Abstraer la complejidad del hardware y optimizar el rendimiento del sistema.
+      Es la creación de una versión virtual de un recurso, como hardware o sistema operativo.
     </label><br />
     <label>
       <input type="radio" name="pregunta1" class="respuesta" data-correcto="falso" value="b" />
-      Diseñar el hardware de los dispositivos.
+      Es la eliminación de recursos físicos en un sistema.
     </label><br />
     <label>
       <input type="radio" name="pregunta1" class="respuesta" data-correcto="falso" value="c" />
-      Aumentar la velocidad del CPU directamente.
+      Es la actualización automática del sistema operativo.
     </label><br />
   </div>
 
   <!-- Pregunta 2 (checkbox) -->
   <div style="margin-bottom: 15px;">
-    <p>2. Selecciona capas que forman parte del software de E/S:</p>
+    <p>2. ¿Cuáles de los siguientes son tipos de virtualización?</p>
     <label>
       <input type="checkbox" name="pregunta2" class="respuesta" data-correcto="verdadero" value="a" />
-      Capas inferiores (controladores y gestión de interrupciones)
+      Virtualización de hardware
     </label><br />
     <label>
       <input type="checkbox" name="pregunta2" class="respuesta" data-correcto="verdadero" value="b" />
-      Capas superiores (interfaz para usuario)
+      Virtualización de software
     </label><br />
     <label>
       <input type="checkbox" name="pregunta2" class="respuesta" data-correcto="falso" value="c" />
-      Capa de presentación gráfica
+      Virtualización de energía eléctrica
     </label><br />
   </div>
 
   <!-- Pregunta 3 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>3. ¿Qué se busca con la independencia de dispositivos?</p>
+    <p>3. ¿Qué componente permite ejecutar varias máquinas virtuales en un mismo hardware físico?</p>
     <label>
       <input type="radio" name="pregunta3" class="respuesta" data-correcto="verdadero" value="a" />
-      Que un programa funcione sin importar el tipo de dispositivo utilizado.
+      Hipervisor
     </label><br />
     <label>
       <input type="radio" name="pregunta3" class="respuesta" data-correcto="falso" value="b" />
-      Evitar el uso de dispositivos antiguos.
+      Compilador
     </label><br />
     <label>
       <input type="radio" name="pregunta3" class="respuesta" data-correcto="falso" value="c" />
-      Requiere reescribir los programas para cada dispositivo.
+      Gestor de archivos
     </label><br />
   </div>
 
   <!-- Pregunta 4 (checkbox) -->
   <div style="margin-bottom: 15px;">
-    <p>4. ¿Cuáles son ventajas del uso de búferes?</p>
+    <p>4. Selecciona ventajas de la virtualización:</p>
     <label>
       <input type="checkbox" name="pregunta4" class="respuesta" data-correcto="verdadero" value="a" />
-      Mantienen un flujo constante de datos.
+      Mejor aprovechamiento de recursos
     </label><br />
     <label>
-      <input type="checkbox" name="pregunta4" class="respuesta" data-correcto="falso" value="b" />
-      Eliminar por completo los errores de E/S.
+      <input type="checkbox" name="pregunta4" class="respuesta" data-correcto="verdadero" value="b" />
+      Facilidad para pruebas y desarrollo
     </label><br />
     <label>
-      <input type="checkbox" name="pregunta4" class="respuesta" data-correcto="verdadero" value="c" />
-      Permiten almacenar datos temporalmente antes de enviarlos.
+      <input type="checkbox" name="pregunta4" class="respuesta" data-correcto="falso" value="c" />
+      Mayor consumo energético siempre
     </label><br />
   </div>
 
   <!-- Pregunta 5 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>5. En la E/S programada, ¿qué hace la CPU mientras espera al dispositivo?</p>
+    <p>5. ¿Qué es la paravirtualización?</p>
     <label>
       <input type="radio" name="pregunta5" class="respuesta" data-correcto="verdadero" value="a" />
-      Verifica continuamente el estado del dispositivo (sondeo).
+      Una técnica donde el sistema invitado es modificado para trabajar con el hipervisor.
     </label><br />
     <label>
       <input type="radio" name="pregunta5" class="respuesta" data-correcto="falso" value="b" />
-      Ejecuta otras tareas en segundo plano.
+      Ejecutar software sin modificaciones en hardware físico.
     </label><br />
     <label>
       <input type="radio" name="pregunta5" class="respuesta" data-correcto="falso" value="c" />
-      Apaga temporalmente el dispositivo.
+      Un tipo de virtualización de red.
     </label><br />
   </div>
 
   <!-- Pregunta 6 (checkbox) -->
   <div style="margin-bottom: 15px;">
-    <p>6. Selecciona las características de la E/S programada:</p>
+    <p>6. ¿Cuáles son características de los contenedores?</p>
     <label>
       <input type="checkbox" name="pregunta6" class="respuesta" data-correcto="verdadero" value="a" />
-      Usa sondeo activo del dispositivo.
+      Aíslan aplicaciones usando el mismo núcleo del sistema operativo
     </label><br />
     <label>
-      <input type="checkbox" name="pregunta6" class="respuesta" data-correcto="falso" value="b" />
-      Es ideal para sistemas multitarea.
+      <input type="checkbox" name="pregunta6" class="respuesta" data-correcto="verdadero" value="b" />
+      Son más ligeros que las máquinas virtuales tradicionales
     </label><br />
     <label>
-      <input type="checkbox" name="pregunta6" class="respuesta" data-correcto="verdadero" value="c" />
-      Es simple de implementar.
+      <input type="checkbox" name="pregunta6" class="respuesta" data-correcto="falso" value="c" />
+      Requieren un hipervisor para funcionar
     </label><br />
   </div>
 
   <!-- Pregunta 7 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>7. ¿Qué mejora la E/S manejada por interrupciones frente a la E/S programada?</p>
+    <p>7. ¿Qué ventaja tiene la virtualización asistida por hardware?</p>
     <label>
       <input type="radio" name="pregunta7" class="respuesta" data-correcto="verdadero" value="a" />
-      La CPU puede realizar otras tareas mientras espera al dispositivo.
+      Mejora el rendimiento al permitir que el hardware gestione tareas de virtualización
     </label><br />
     <label>
       <input type="radio" name="pregunta7" class="respuesta" data-correcto="falso" value="b" />
-      Aumenta el tiempo de espera del dispositivo.
+      Hace innecesario el uso de hipervisores
     </label><br />
     <label>
       <input type="radio" name="pregunta7" class="respuesta" data-correcto="falso" value="c" />
-      Requiere intervención manual del usuario.
+      Solo funciona en sistemas operativos antiguos
     </label><br />
   </div>
 
   <!-- Pregunta 8 (checkbox) -->
   <div style="margin-bottom: 15px;">
-    <p>8. ¿Cuáles son ventajas del uso de E/S manejada por interrupciones?</p>
+    <p>8. ¿Cuáles son ejemplos de software de virtualización?</p>
     <label>
       <input type="checkbox" name="pregunta8" class="respuesta" data-correcto="verdadero" value="a" />
-      Libera a la CPU de estar ocupada todo el tiempo.
+      VMware
     </label><br />
     <label>
-      <input type="checkbox" name="pregunta8" class="respuesta" data-correcto="falso" value="b" />
-      No requiere rutina de interrupciones.
+      <input type="checkbox" name="pregunta8" class="respuesta" data-correcto="verdadero" value="b" />
+      VirtualBox
     </label><br />
     <label>
-      <input type="checkbox" name="pregunta8" class="respuesta" data-correcto="verdadero" value="c" />
-      Mejora el rendimiento en sistemas multitarea.
+      <input type="checkbox" name="pregunta8" class="respuesta" data-correcto="falso" value="c" />
+      Microsoft Word
     </label><br />
   </div>
 
   <!-- Pregunta 9 (radio) -->
   <div style="margin-bottom: 15px;">
-    <p>9. ¿Cómo mejora el DMA la eficiencia del sistema?</p>
+    <p>9. ¿Qué es una máquina virtual?</p>
     <label>
       <input type="radio" name="pregunta9" class="respuesta" data-correcto="verdadero" value="a" />
-      Reduce el número de interrupciones al usar bloques de datos.
+      Un entorno aislado que simula un sistema físico completo
     </label><br />
     <label>
       <input type="radio" name="pregunta9" class="respuesta" data-correcto="falso" value="b" />
-      Usa la CPU para cada byte transferido.
+      Un tipo de hardware especializado
     </label><br />
     <label>
       <input type="radio" name="pregunta9" class="respuesta" data-correcto="falso" value="c" />
-      Permite que los dispositivos compartan búferes.
+      Un archivo de texto con configuraciones
     </label><br />
   </div>
 
   <!-- Pregunta 10 (checkbox) -->
   <div style="margin-bottom: 15px;">
-    <p>10. ¿Qué afirmaciones sobre DMA son correctas?</p>
+    <p>10. ¿Qué afirmaciones sobre virtualización son correctas?</p>
     <label>
       <input type="checkbox" name="pregunta10" class="respuesta" data-correcto="verdadero" value="a" />
-      Libera a la CPU durante la transferencia.
+      Permite ejecutar varios sistemas operativos en un solo equipo físico
     </label><br />
     <label>
       <input type="checkbox" name="pregunta10" class="respuesta" data-correcto="falso" value="b" />
-      Siempre es más rápido que la CPU.
+      Siempre reduce el rendimiento del sistema
     </label><br />
     <label>
       <input type="checkbox" name="pregunta10" class="respuesta" data-correcto="verdadero" value="c" />
-      Puede ser más lento que la CPU, pero sigue siendo útil.
+      Facilita la administración y recuperación ante fallos
     </label><br />
   </div>
 </form>
-
-
 
           <!-- Botón para validar respuestas -->
           <input type="button" value="Validar respuestas" id="btnValidar" />

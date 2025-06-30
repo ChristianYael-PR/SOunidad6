@@ -74,41 +74,52 @@
         <h1 class="page-title">6.2.3 Paravirtualización</h1>
  
         <!-- ================ CONTENIDO DEL TEMA ================ -->
+
+        <h2 class="subtitulo">¿Qué es la paravirtualización?</h2>
         <p>
-       Otra manera en la que se puede realizar la E/S desde el punto de vista del sistema operativo es la E/S manejada por interrupciones, la cual mejora la eficiencia del sistema al permitir que la CPU no espere activamente a que un dispositivo esté listo, como en la E/S programada. En lugar de eso, el dispositivo interrumpe a la CPU solo cuando necesita atención, por ejemplo, al imprimir una cadena, el sistema operativo copia los datos del proceso al espacio de kernel y envía el primer carácter a la impresora. Luego, la CPU puede ejecutar otro proceso mientras la impresora trabaja. Cuando la impresora termina de imprimir un carácter, genera una interrupción.
+          La <b>paravirtualización</b> es una técnica de virtualización en la que el sistema operativo invitado es modificado para ser consciente de que se está ejecutando en un entorno virtualizado. A diferencia de la virtualización completa, donde el hipervisor debe emular todo el hardware, en la paravirtualización el sistema operativo invitado coopera con el hipervisor mediante interfaces especiales (llamadas "hypercalls") para mejorar el rendimiento y la eficiencia.
         </p>
 
-        <div style="margin: 20x 0; text-align: center;">
-          <img src="../../assets/5.2.3_interrupciones.png" alt="Imagen Tema 1" style="max-width:40%; border-radius:6px;" />
-        
+        <h2 class="subtitulo">¿Cómo funciona?</h2>
+        <ul>
+          <li>El sistema operativo invitado se modifica para reemplazar ciertas instrucciones privilegiadas por llamadas directas al hipervisor.</li>
+          <li>El hipervisor gestiona estas llamadas y proporciona acceso controlado a los recursos del hardware físico.</li>
+          <li>Al evitar la emulación completa del hardware, se reduce la sobrecarga y se mejora el rendimiento.</li>
+        </ul>
+
+        <div style="margin: 20px 0; text-align: center;">
+          <img src="../../assets/6.2.3Paravirtualizacion.png" alt="Contenedores en sistemas operativos" style="max-width:55%; border-radius:6px;" />
           <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Fuente: <a href="https://expo3.blogia.com/2007/012802-e-s-por-interrupciones.php" target="_blank" style="color: #666; text-decoration: none;"> E/S POR INTERRUPCIONES. (2007, Enero 28). Exposición 3 de Arquitectura - Blogia Recuperado: Junio 6, 2025, de https://expo3.blogia.com/2007/012802-e-s-por-interrupciones.php</a>
+            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos. Pearson Educación.
           </p>
         </div>
 
-        <p>
-  La interrupción detiene temporalmente el proceso en ejecución, se ejecuta una rutina especial que envía el siguiente carácter (si queda alguno), y luego se reanuda el proceso interrumpido. Si no hay más caracteres, se desbloquea el proceso que pidió la impresión.
-        </p>
-<br>
-        <p>
-  Este método libera a la CPU de estar ocupada en espera, lo que mejora el rendimiento del sistema, especialmente en entornos multitarea.
-        </p>
+        <h2 class="subtitulo">Ventajas y desventajas</h2>
+        <ul>
+          <li><b>Ventajas:</b> Mejor rendimiento que la virtualización completa, menor sobrecarga, mayor eficiencia en el uso de recursos.</li>
+          <li><b>Desventajas:</b> Requiere modificar el sistema operativo invitado, lo que limita la compatibilidad con sistemas operativos propietarios o cerrados.</li>
+        </ul>
+
+        <h2 class="subtitulo">Ejemplos de uso</h2>
+        <ul>
+          <li>Xen es uno de los hipervisores más conocidos que utiliza paravirtualización.</li>
+          <li>Linux es un sistema operativo que puede ser modificado para ejecutarse en modo paravirtualizado.</li>
+        </ul>
 
         <div style="margin: 20px 0; text-align: left;">
-        <p style="font-size: 12px; color: #666; margin-top: 5px;">
-            Tanenbaum, A. S., & Van Steen, M. (2009). Sistemas operativos modernos: 5.2.3 E/S controlada por interrupciones. (3.ª ed., A. V. R. Elizondo, Trad.; J. R. R. Sánchez & A. J. Govea, Revisión técnica). Pearson Educación. pp. 346-347
-        </p>
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">
+            Stallings, W. (2018). Sistemas operativos: Conceptos y diseño. Pearson.
+          </p>
         </div>
 
-    <!-- ===================== BOTONES ===================== -->  
-          <div style="margin-top: 20px; display: flex; justify-content: space-between;">
-            <a href="6.2.2.html">
-              <button>&laquo; Tema Anterior</button>
-            </a>
-            <a href="6.2.4.html">
-              <button>Próximo Tema &raquo;</button>
-            </a>
-          </div>
+        <!-- ===================== BOTONES ===================== -->  
+        <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+          <a href="6.2.2.html">
+            <button>&laquo; Tema Anterior</button>
+          </a>
+          <a href="6.2.4.html">
+            <button>Próximo Tema &raquo;</button>
+          </a>
         </div>
       </main>
     </div>
